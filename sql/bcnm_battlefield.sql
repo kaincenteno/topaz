@@ -173,6 +173,8 @@ INSERT INTO `bcnm_battlefield` VALUES (15,3,17346742,3);
 INSERT INTO `bcnm_battlefield` VALUES (17,1,17346750,3); -- contaminated_colosseum
 INSERT INTO `bcnm_battlefield` VALUES (17,2,17346752,3);
 INSERT INTO `bcnm_battlefield` VALUES (17,3,17346754,3);
+INSERT INTO `bcnm_battlefield` VALUES (20,1,17347171,3); -- beyond_infinity (Horlais Peek)
+INSERT INTO `bcnm_battlefield` VALUES (20,1,17347172,3);
 INSERT INTO `bcnm_battlefield` VALUES (32,1,17350662,3); -- save_the_children
 INSERT INTO `bcnm_battlefield` VALUES (32,1,17350663,3);
 INSERT INTO `bcnm_battlefield` VALUES (32,1,17350664,3);
