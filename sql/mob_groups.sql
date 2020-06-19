@@ -9397,6 +9397,7 @@ INSERT INTO `mob_groups` VALUES (33,1101,139,'Dragonian_Minstrel',0,128,0,8250,0
 INSERT INTO `mob_groups` VALUES (34,230,139,'Aries',0,128,0,0,0,75,75,0);
 INSERT INTO `mob_groups` VALUES (35,1265,139,'Evil_Oscar',0,128,0,12500,0,75,75,0);
 INSERT INTO `mob_groups` VALUES (36,2405,139,'Lhu_Mhakaracca',0,0,0,0,0,0,0,0);
+INSERT INTO `mob_groups` VALUES (37,6233,139,'Atori-Tutori_???',0,128,0,27000,0,95,95,0);
 INSERT INTO `mob_groups` VALUES (7714,2226,139,'Kilhwch',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (7719,2904,139,'Noillurie',0,0,0,0,0,0,0,0);
 
