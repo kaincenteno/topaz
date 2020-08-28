@@ -22,5 +22,17 @@ end
 function onMobFight(mob, target)
 end
 
+function onMobWeaponSkill(target, mob, skill)
+    if skill:getID() == 14 then -- Victory Smite
+        mob:showText(mob, 7952) -- Haha! I'm just getting warmed up!≺Prompt≻
+    elseif skill:getID() == 8 then -- Dragon Kick
+        mob:showText(mob, 7952) -- Huh? Is that all?  I haven't even broken a sweataru...
+--    elseif skill:getID() ==  then --
+--        mob:showText(mob, ) --
+--    elseif skill:getID() ==  then -- Victory Smite
+--        mob:showText(mob, ) --
+    end
+end
+
 function onMobDeath(mob, player, isKiller)
 end
