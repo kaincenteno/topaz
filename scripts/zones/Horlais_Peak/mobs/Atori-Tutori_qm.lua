@@ -4,9 +4,21 @@
 -- BCNM: Beyond Infinity
 -----------------------------------
 require("scripts/globals/status")
+require("scripts/mixins/job_special")
 -----------------------------------
 
 function onMobSpawn(mob)
+    tpz.mix.jobSpecial.config(mob, {
+        specials =
+        {
+            {id = tpz.jsa.MIGHTY_STRIKES,
+                hpp = 35,
+                begCode = function(mob)
+                    mob:messageText(mob, 7953) -- Hah! You pack more of a punch than I thoughtaru.  But I won't go down as easy as old Maat!≺Prompt≻
+                end
+            },
+        },
+    })
 end
 
 function onMobEngaged(mob,target)
