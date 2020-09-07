@@ -3618,5 +3618,11 @@ INSERT INTO `mob_skill_lists` VALUES ('Luopan',1141,3045); -- Concentric Pulse
 INSERT INTO `mob_skill_lists` VALUES ('Luopan',1141,3051); -- Mending Halation
 INSERT INTO `mob_skill_lists` VALUES ('Luopan',1141,3052); -- Radial Arcana
 
+INSERT INTO `mob_skill_lists` VALUES ('Atori-Tutori_qm',1142,7); -- Howling Fist
+INSERT INTO `mob_skill_lists` VALUES ('Atori-Tutori_qm',1142,9); -- Asuran Fists
+INSERT INTO `mob_skill_lists` VALUES ('Atori-Tutori_qm',1142,10); -- Final Heaven
+INSERT INTO `mob_skill_lists` VALUES ('Atori-Tutori_qm',1142,11); -- Ascetics Fury
+INSERT INTO `mob_skill_lists` VALUES ('Atori-Tutori_qm',1142,14); -- Victory Smite
+
 -- Next available ID: 1141
 

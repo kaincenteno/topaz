@@ -51,6 +51,8 @@ function onTrigger(player, npc)
         player:startEvent(10194)
     elseif player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.PRELUDE_TO_PUISSANCE) == QUEST_COMPLETED and player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.BEYOND_INFINITY) == QUEST_AVAILABLE then
         player:startEvent(10045, 0, 1, 5, 0)
+    elseif player:getCharVar("AtoriDefeated") == 1 then
+        player:startEvent(10139)
     elseif (player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.NEW_WORLDS_AWAIT) == QUEST_ACCEPTED) then
         player:startEvent(10045, 0, 1, 1, 1)
     elseif (player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.EXPANDING_HORIZONS) == QUEST_ACCEPTED) then
@@ -134,6 +136,13 @@ function onEventFinish(player,csid,option)
         player:messageSpecial(ID.text.YOUR_LEVEL_LIMIT_IS_NOW_95);
         player:addKeyItem(tpz.ki.SOUL_GEM);
         player:messageSpecial(ID.text.KEYITEM_OBTAINED,tpz.ki.SOUL_GEM);
+    elseif csid == 10139 then
+        npcUtil.completeQuest(player, JEUNO, BEYOND_INFINITY, {
+            title = tpz.title.BUSHIN_ASPIRANT,
+            var = AtoriDefeated
+        })
+        player:levelCap(99)
+        player:messageSpecial(ID.text.YOUR_LEVEL_LIMIT_IS_NOW_99)
     elseif csid == 10194 then
         player:addQuest(JEUNO,tpz.quest.id.jeuno.PRELUDE_TO_PUISSANCE)
     end

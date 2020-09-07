@@ -13,9 +13,11 @@ function onBattlefieldTick(battlefield, tick)
 end
 
 function onBattlefieldRegister(player, battlefield)
+
 end
 
 function onBattlefieldEnter(player, battlefield)
+    player:delKeyItem(tpz.ki.SOUL_GEM_CLASP)
 end
 
 function onBattlefieldLeave(player, battlefield, leavecode)
@@ -32,10 +34,9 @@ end
 
 function onEventFinish(player, csid, option)
     if csid == 32001 then
-        player:addTitle(tpz.title.BUSHIN_RYU_INHERITOR)
         if player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.BEYOND_INFINITY) == QUEST_ACCEPTED then
             npcUtil.giveItem(player, 4181) -- scroll_of_instant_warp
-            -- needs a charvar to check that it was won
+            player:setCharVar("AtoriDefeated", 1)
         end
     end
 end

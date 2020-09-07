@@ -12448,6 +12448,7 @@ INSERT INTO `mob_groups` VALUES (58,3533,206,'Seed_Quadav',0,128,0,0,0,50,50,0);
 INSERT INTO `mob_groups` VALUES (59,3535,206,'Seed_Yagudo',0,128,0,0,0,50,50,0);
 INSERT INTO `mob_groups` VALUES (60,3530,206,'Seed_Goblin',0,128,0,0,0,50,50,0);
 INSERT INTO `mob_groups` VALUES (61,6069,206,'Ghul-I-Beaban_BLM',0,128,0,0,0,40,40,0);
+INSERT INTO `mob_groups` VALUES (62,6233,206,'Atori-Tutori_qm',0,128,0,27000,0,95,95,0);
 INSERT INTO `mob_groups` VALUES (10045,4006,206,'Trion',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (10055,4498,206,'Zeid',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (14183,4006,206,'Trion',0,128,0,0,0,75,75,1);

@@ -174,6 +174,8 @@ INSERT INTO `bcnm_battlefield` VALUES (17,1,17346750,3); -- contaminated_colosse
 INSERT INTO `bcnm_battlefield` VALUES (17,2,17346752,3);
 INSERT INTO `bcnm_battlefield` VALUES (17,3,17346754,3);
 INSERT INTO `bcnm_battlefield` VALUES (20,1,17346789,3); -- beyond_infinity (Horlais Peek)
+INSERT INTO `bcnm_battlefield` VALUES (20,2,17346790,3); -- beyond_infinity (Horlais Peek)
+INSERT INTO `bcnm_battlefield` VALUES (20,3,17346791,3); -- beyond_infinity (Horlais Peek)
 INSERT INTO `bcnm_battlefield` VALUES (32,1,17350662,3); -- save_the_children
 INSERT INTO `bcnm_battlefield` VALUES (32,1,17350663,3);
 INSERT INTO `bcnm_battlefield` VALUES (32,1,17350664,3);
@@ -964,6 +966,9 @@ INSERT INTO `bcnm_battlefield` VALUES (532,3,17621298,3);
 INSERT INTO `bcnm_battlefield` VALUES (532,3,17621299,3);
 INSERT INTO `bcnm_battlefield` VALUES (532,3,17621300,3);
 INSERT INTO `bcnm_battlefield` VALUES (532,3,17621301,3);
+INSERT INTO `bcnm_battlefield` VALUES (533,1,17621302,3); -- beyond_infinity (Qu'Bia Arena)
+INSERT INTO `bcnm_battlefield` VALUES (533,2,17621303,3); -- beyond_infinity (Qu'Bia Arena)
+INSERT INTO `bcnm_battlefield` VALUES (533,3,17621304,3); -- beyond_infinity (Qu'Bia Arena)
 INSERT INTO `bcnm_battlefield` VALUES (544,1,17625089,3); -- trial_by_fire
 INSERT INTO `bcnm_battlefield` VALUES (544,2,17625090,3);
 INSERT INTO `bcnm_battlefield` VALUES (544,3,17625091,3);

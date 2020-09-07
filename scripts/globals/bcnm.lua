@@ -480,11 +480,13 @@ function checkReqs(player, npc, bfid, registrant)
         [  70] = function() return ( mjob == tpz.job.RDM and mlvl >= 66                                                                                                     ) end, -- Quest: Shattering Stars (RDM LB5)
         [  71] = function() return ( mjob == tpz.job.THF and mlvl >= 66                                                                                                     ) end, -- Quest: Shattering Stars (THF LB5)
         [  72] = function() return ( mjob == tpz.job.BST and mlvl >= 66                                                                                                     ) end, -- Quest: Shattering Stars (BST LB5)
+        [  85] = function() return ( player:hasKeyItem(tpz.ki.SOUL_GEM_CLASP)                                                                                               ) end, -- Quest: Beyond Infinity
         [  96] = function() return ( player:hasKeyItem(tpz.ki.DARK_KEY)                                                                                                     ) end, -- Mission 2-3
         [  99] = function() return ( windy == mi.windurst.SAINTLY_INVITATION and natStat == 1                                                                               ) end, -- Windy 6-2: A Saintly Invitation
         [ 101] = function() return ( mjob == tpz.job.MNK and mlvl >= 66                                                                                                     ) end, -- Quest: Shattering Stars (MNK LB5)
         [ 102] = function() return ( mjob == tpz.job.WHM and mlvl >= 66                                                                                                     ) end, -- Quest: Shattering Stars (WHM LB5)
         [ 103] = function() return ( mjob == tpz.job.SMN and mlvl >= 66                                                                                                     ) end, -- Quest: Shattering Stars (SMN LB5)
+        [ 116] = function() return ( player:hasKeyItem(tpz.ki.SOUL_GEM_CLASP)                                                                                               ) end, -- Quest: Beyond Infinity
         [ 128] = function() return ( roz == mi.zilart.THE_TEMPLE_OF_UGGALEPIH                                                                                               ) end, -- ZM4: The Temple of Uggalepih
         [ 160] = function() return ( nat == mi.nation.SHADOW_LORD and natStat == 3                                                                                          ) end, -- Mission 5-2
         [ 161] = function() return ( basty == mi.bastok.WHERE_TWO_PATHS_CONVERGE and natStat == 1                                                                           ) end, -- Basty 9-2: Where Two Paths Converge
@@ -524,6 +526,7 @@ function checkReqs(player, npc, bfid, registrant)
         [ 544] = function() return ( player:hasKeyItem(tpz.ki.TUNING_FORK_OF_FIRE)                                                                                          ) end, -- Quest: Trial by Fire
         [ 545] = function() return ( mjob == tpz.job.SMN and mlvl >= 20                                                                                                     ) end, -- Quest: Trial-size Trial by Fire
         [ 547] = function() return ( asa == mi.asa.SUGAR_COATED_DIRECTIVE and player:hasKeyItem(tpz.ki.DOMINAS_SCARLET_SEAL)                                                ) end, -- ASA4: Sugar-coated Directive
+        [ 533] = function() return ( player:hasKeyItem(tpz.ki.SOUL_GEM_CLASP)                                                                                               ) end, -- Quest: Beyond Infinity
         [ 576] = function() return ( player:hasKeyItem(tpz.ki.TUNING_FORK_OF_EARTH)                                                                                         ) end, -- Quest: Trial by Earth
         [ 577] = function() return ( player:getCharVar("ThePuppetMasterProgress") == 2                                                                                      ) end, -- Quest: The Puppet Master
         [ 578] = function() return ( mjob == tpz.job.SMN and mlvl >= 20                                                                                                     ) end, -- Quest: Trial-size Trial by Earth
