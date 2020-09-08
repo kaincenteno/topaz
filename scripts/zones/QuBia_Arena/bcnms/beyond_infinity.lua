@@ -13,11 +13,13 @@ function onBattlefieldTick(battlefield, tick)
 end
 
 function onBattlefieldRegister(player, battlefield)
-
 end
 
 function onBattlefieldEnter(player, battlefield)
-    player:delKeyItem(tpz.ki.SOUL_GEM_CLASP)
+    if player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.BEYOND_INFINITY) == QUEST_ACCEPTED then
+        player:delKeyItem(tpz.ki.SOUL_GEM_CLASP)
+        player:setCharVar("BeyondInfinityCS", 1)
+    end
 end
 
 function onBattlefieldLeave(player, battlefield, leavecode)
@@ -36,7 +38,7 @@ function onEventFinish(player, csid, option)
     if csid == 32001 then
         if player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.BEYOND_INFINITY) == QUEST_ACCEPTED then
             npcUtil.giveItem(player, 4181) -- scroll_of_instant_warp
-            player:setCharVar("AtoriDefeated", 1)
+            player:setCharVar("BeyondInfinityCS", 2)
         end
     end
 end

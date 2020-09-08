@@ -393,6 +393,9 @@ INSERT INTO `bcnm_battlefield` VALUES (82,3,17367297,3);
 INSERT INTO `bcnm_battlefield` VALUES (82,3,17367298,3);
 INSERT INTO `bcnm_battlefield` VALUES (82,3,17367299,3);
 INSERT INTO `bcnm_battlefield` VALUES (82,3,17367300,3);
+INSERT INTO `bcnm_battlefield` VALUES (85,1,17367332,3); -- beyond_infinity (Waughroon Shrine)
+INSERT INTO `bcnm_battlefield` VALUES (85,2,17367333,3); -- beyond_infinity (Waughroon Shrine)
+INSERT INTO `bcnm_battlefield` VALUES (85,3,17367334,3); -- beyond_infinity (Waughroon Shrine)
 INSERT INTO `bcnm_battlefield` VALUES (96,1,17375233,3); -- rank_2_mission (Balga's Dias)
 INSERT INTO `bcnm_battlefield` VALUES (96,1,17375234,3);
 INSERT INTO `bcnm_battlefield` VALUES (96,2,17375235,3);
@@ -534,6 +537,9 @@ INSERT INTO `bcnm_battlefield` VALUES (109,3,17375399,3);
 INSERT INTO `bcnm_battlefield` VALUES (110,1,17375401,3); -- wild_wild_whiskers
 INSERT INTO `bcnm_battlefield` VALUES (110,2,17375403,3);
 INSERT INTO `bcnm_battlefield` VALUES (110,3,17375405,3);
+INSERT INTO `bcnm_battlefield` VALUES (116,1,17375491,3); -- beyond_infinity (Balgas Dais)
+INSERT INTO `bcnm_battlefield` VALUES (116,2,17375492,3); -- beyond_infinity (Balgas Dais)
+INSERT INTO `bcnm_battlefield` VALUES (116,3,17375493,3); -- beyond_infinity (Balgas Dais)
 INSERT INTO `bcnm_battlefield` VALUES (128,1,17444865,3); -- temple_of_uggalepih
 INSERT INTO `bcnm_battlefield` VALUES (128,1,17444866,3);
 INSERT INTO `bcnm_battlefield` VALUES (128,1,17444867,3);

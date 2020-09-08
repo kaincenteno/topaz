@@ -9568,6 +9568,7 @@ INSERT INTO `mob_groups` VALUES (42,3929,144,'Titanis_Max',0,128,0,0,0,75,75,0);
 INSERT INTO `mob_groups` VALUES (43,3928,144,'Titanis_Jax',0,128,0,0,0,75,75,0);
 INSERT INTO `mob_groups` VALUES (44,3930,144,'Titanis_Xax',0,128,0,0,0,75,75,0);
 INSERT INTO `mob_groups` VALUES (45,3927,144,'Titanis_Dax',0,128,0,0,0,75,75,0);
+INSERT INTO `mob_groups` VALUES (46,6233,144,'Atori-Tutori_qm',0,128,0,27000,0,95,95,0);
 INSERT INTO `mob_groups` VALUES (7826,305,144,'Ayame',0,0,0,0,0,0,0,0);
 
 -- ------------------------------------------------------------
@@ -9656,6 +9657,7 @@ INSERT INTO `mob_groups` VALUES (45,2259,146,'King_of_Coins',0,128,0,0,0,75,75,0
 INSERT INTO `mob_groups` VALUES (46,3285,146,'Queen_of_Cups',0,128,2064,0,0,75,75,0);
 INSERT INTO `mob_groups` VALUES (47,3283,146,'Queen_of_Batons',0,128,0,0,0,75,75,0);
 INSERT INTO `mob_groups` VALUES (48,1532,146,'Giant_Moa',0,128,0,0,0,75,75,0);
+INSERT INTO `mob_groups` VALUES (49,6233,146,'Atori-Tutori_qm',0,128,0,27000,0,95,95,0);
 
 -- ------------------------------------------------------------
 -- Beadeaux (Zone 147)
