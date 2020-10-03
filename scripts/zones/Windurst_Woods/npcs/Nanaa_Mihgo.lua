@@ -76,20 +76,22 @@ function onTrigger(player, npc)
         player:startEvent(503) -- standard dialog after
 
         -- THICK AS THIEVES
-    elseif job == tpz.job.THF and lvl >= AF2_QUEST_LEVEL and thickAsThieves == QUEST_AVAILABLE and tenshodoShowdown ==
-        QUEST_COMPLETED then
+    elseif job == tpz.job.THF and lvl >= AF2_QUEST_LEVEL and thickAsThieves == QUEST_AVAILABLE
+        and tenshodoShowdown == QUEST_COMPLETED
+    then
         player:startEvent(504) -- start quest
     elseif thickAsThieves == QUEST_ACCEPTED then
         if player:hasKeyItem(tpz.ki.FIRST_SIGNED_FORGED_ENVELOPE) and
             player:hasKeyItem(tpz.ki.SECOND_SIGNED_FORGED_ENVELOPE) then
             player:startEvent(508) -- complete quest
         else
-            player:startEvent(505, 0, tpz.ki.GANG_WHEREABOUTS_NOTE) -- before completing grappling and gambling sidequests
+            player:startEvent(505, 0, tpz.ki.GANG_WHEREABOUTS_NOTE) -- before complete grappling and gambling sidequests
         end
 
         -- HITTING THE MARQUISATE
-    elseif job == tpz.job.THF and lvl >= AF3_QUEST_LEVEL and thickAsThieves == QUEST_COMPLETED and hittingTheMarquisate ==
-        QUEST_AVAILABLE then
+    elseif job == tpz.job.THF and lvl >= AF3_QUEST_LEVEL and thickAsThieves == QUEST_COMPLETED
+        and hittingTheMarquisate == QUEST_AVAILABLE
+    then
         player:startEvent(512) -- start quest
     elseif hittingTheMarquisateYatnielCS == 3 and hittingTheMarquisateHagainCS == 9 then
         player:startEvent(516) -- finish first part
@@ -97,7 +99,9 @@ function onTrigger(player, npc)
         player:startEvent(517) -- second part
 
         -- ROCK RACKETEER
-    elseif mihgosAmigo == QUEST_COMPLETED and rockRacketeer == QUEST_AVAILABLE and player:getFameLevel(WINDURST) >= 3 then
+    elseif mihgosAmigo == QUEST_COMPLETED and rockRacketeer == QUEST_AVAILABLE
+        and player:getFameLevel(WINDURST) >= 3
+    then
         if player:needToZone() then
             player:startEvent(89) -- complete
         else
@@ -161,10 +165,11 @@ function onEventFinish(player, csid, option)
         player:setCharVar("thickAsThievesGamblingCS", 1)
         npcUtil.giveKeyItem(player,
             {tpz.ki.GANG_WHEREABOUTS_NOTE, tpz.ki.FIRST_FORGED_ENVELOPE, tpz.ki.SECOND_FORGED_ENVELOPE})
-    elseif (csid == 508 and npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.AS_THICK_AS_THIEVES, {
-        item = 12514,
-        var = "thickAsThievesGamblingCS"
-    })) then
+    elseif csid == 508 and npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.AS_THICK_AS_THIEVES, {
+            item = 12514,
+            var = "thickAsThievesGamblingCS"
+        })
+    then
         player:delKeyItem(tpz.ki.GANG_WHEREABOUTS_NOTE)
         player:delKeyItem(tpz.ki.FIRST_SIGNED_FORGED_ENVELOPE)
         player:delKeyItem(tpz.ki.SECOND_SIGNED_FORGED_ENVELOPE)
@@ -192,11 +197,12 @@ function onEventFinish(player, csid, option)
     elseif csid == 80 or csid == 81 then
         player:addQuest(WINDURST, tpz.quest.id.windurst.MIHGO_S_AMIGO)
     elseif csid == 88 and npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.MIHGO_S_AMIGO, {
-        gil = 200,
-        title = tpz.title.CAT_BURGLAR_GROUPIE,
-        fameArea = NORG,
-        fame = 60
-    }) then
+            gil = 200,
+            title = tpz.title.CAT_BURGLAR_GROUPIE,
+            fameArea = NORG,
+            fame = 60
+        })
+    then
         player:confirmTrade()
         player:needToZone(true)
     elseif csid == 494 then

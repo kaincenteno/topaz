@@ -14,6 +14,7 @@ end
 
 function onTrigger(player, npc)
     local RegionOwner = GetRegionOwner(tpz.region.GUSTABERG)
+
     if RegionOwner ~= tpz.nation.WINDURST then
         player:showText(npc, ID.text.NYALABICCIO_CLOSED_DIALOG)
     else

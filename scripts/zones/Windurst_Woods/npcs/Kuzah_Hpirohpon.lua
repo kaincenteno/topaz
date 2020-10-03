@@ -12,7 +12,7 @@ function onTrade(player, npc, trade)
 end
 
 function onTrigger(player, npc)
-    if (player:sendGuild(5152, 6, 21, 0)) then
+    if player:sendGuild(5152, 6, 21, 0) then
         player:showText(npc, ID.text.KUZAH_HPIROHPON_DIALOG)
     end
 end

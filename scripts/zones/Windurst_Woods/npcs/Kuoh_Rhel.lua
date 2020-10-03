@@ -60,14 +60,24 @@ function onEventFinish(player, csid, option)
     -- CHOCOBILIOUS
     if csid == 224 and option == 1 then
         player:addQuest(WINDURST, tpz.quest.id.windurst.CHOCOBILIOUS)
-    elseif csid == 231 and npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.CHOCOBILIOUS, {fame=220, gil=1500, var="ChocobiliousQuest"}) then
+    elseif csid == 231 then
+        npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.CHOCOBILIOUS, {
+            fame = 220,
+            gil = 1500,
+            var = "ChocobiliousQuest"
+        })
         player:needToZone(true)
 
     -- IN A STEW
     elseif csid == 235 then
         player:addQuest(WINDURST, tpz.quest.id.windurst.IN_A_STEW)
         player:setCharVar("IASvar", 1)
-    elseif csid == 239 and npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.IN_A_STEW, {fame=50, gil=900, var="IASvar"}) then
+    elseif csid == 239 then
+        npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.IN_A_STEW, {
+            fame = 50,
+            gil = 900,
+            var = "IASvar"
+        })
         player:delKeyItem(tpz.ki.RANPIMONPIS_SPECIAL_STEW)
     elseif csid == 234 and option == 1 then -- start repeat
         player:setCharVar("IASvar", 3)

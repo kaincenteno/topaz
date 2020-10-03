@@ -4,8 +4,8 @@
 -- Type: Clothcraft Guild Master
 -- !pos -38.243 -2.25 -120.954 241
 -- TODO Allow players to purchase additional Cuttings
--- TODO Allow players to cancel quest 
--- TODO Requre check for other 3 quests An Understanding General, A Generous General, 
+-- TODO Allow players to cancel quest
+-- TODO Requre check for other 3 quests An Understanding General, A Generous General,
 -----------------------------------
 local ID = require("scripts/zones/Windurst_Woods/IDs")
 require("scripts/globals/crafting")
@@ -45,8 +45,9 @@ function onTrigger(player, npc)
         player:startEvent(700)
     elseif moralManifest == QUEST_COMPLETE or moralManifest == QUEST_ACCEPTED and player:getCharVar("moral") >= 4 then
         player:startEvent(704)
-    elseif player:getCharVar("moral") == 3 and player:getLocalVar("moralZone") == 0 and player:getCharVar("moralWait") <=
-        os.time() then
+    elseif player:getCharVar("moral") == 3 and player:getLocalVar("moralZone") == 0
+        and player:getCharVar("moralWait") <= os.time()
+    then
         player:startEvent(705)
     else
         player:startEvent(10011, testItem, getNewRank, 30, guildMember, 44, 0, 0, 0)

@@ -9,6 +9,7 @@
 local ID = require("scripts/zones/Windurst_Woods/IDs")
 require("scripts/globals/quests")
 require("scripts/globals/titles")
+require("scripts/globals/npc_util")
 -----------------------------------
 
 function onTrade(player, npc, trade)
@@ -56,17 +57,11 @@ function onEventFinish(player, csid, option)
         player:needToZone(true) -- wait one day and zone after next step
     elseif csid == 298 then
         player:setCharVar("AGreetingCardian_Event", 4)
-    elseif csid == 303 then
-        if player:getFreeSlotsCount() == 0 then
-            player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 13330) -- Tourmaline Earring
-        else
-            player:addItem(13330)
-            player:messageSpecial(ID.text.ITEM_OBTAINED, 13330) -- Tourmaline Earring
-            player:addFame(WINDURST, 30)
-            player:completeQuest(WINDURST, tpz.quest.id.windurst.A_GREETING_CARDIAN)
-            player:needToZone(true) -- zone before starting Legendary Plan B
-            player:setCharVar("AGreetingCardian_timer", 0)
-            player:setCharVar("AGreetingCardian_Event", 0) -- finish cleanup of A Greeting Cardian variables
-        end
+    elseif csid == 303 and npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.A_GREETING_CARDIAN, {
+        item = 13330,
+        var = {"AGreetingCardian_timer", "AGreetingCardian_Event"}
+    })
+    then
+        player:needToZone(true) -- zone before starting Legendary Plan B
     end
 end

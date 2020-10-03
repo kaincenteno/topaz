@@ -12,7 +12,9 @@ require("scripts/globals/titles")
 
 function onTrade(player, npc, trade)
     -- CHOCOBILIOUS
-    if player:getQuestStatus(WINDURST, tpz.quest.id.windurst.CHOCOBILIOUS) == QUEST_ACCEPTED and player:getCharVar("ChocobiliousQuest") == 1 and npcUtil.tradeHas(trade, 938) then
+    if player:getQuestStatus(WINDURST, tpz.quest.id.windurst.CHOCOBILIOUS) == QUEST_ACCEPTED
+        and player:getCharVar("ChocobiliousQuest") == 1 and npcUtil.tradeHas(trade, 938)
+    then
         player:startEvent(229, 0, 938)
 
     -- PAYING LIP SERVICE
@@ -65,7 +67,10 @@ function onEventFinish(player, csid, option)
         player:addQuest(WINDURST, tpz.quest.id.windurst.PAYING_LIP_SERVICE)
     elseif csid == 479 then
         if player:getQuestStatus(WINDURST, tpz.quest.id.windurst.PAYING_LIP_SERVICE) == QUEST_ACCEPTED then
-            npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.PAYING_LIP_SERVICE, {fame=60, title=tpz.title.KISSER_MAKEUPPER})
+            npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.PAYING_LIP_SERVICE, {
+                fame = 60,
+                title = tpz.title.KISSER_MAKEUPPER
+            })
         else
             player:addFame(WINDURST, 8)
         end

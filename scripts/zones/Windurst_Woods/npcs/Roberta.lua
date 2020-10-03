@@ -5,6 +5,7 @@
 -----------------------------------
 local ID = require("scripts/zones/Windurst_Woods/IDs")
 require("scripts/globals/quests")
+require("scripts/globals/npc_util")
 -----------------------------------
 
 function onTrade(player, npc, trade)
@@ -37,18 +38,13 @@ function onEventUpdate(player, csid, option)
 end
 
 function onEventFinish(player, csid, option)
-    if (csid == 376 or csid == 377) and option == 1 then
-        if player:getFreeSlotsCount() >= 1 then
-            local blueRibbonProg = player:getCharVar("BlueRibbonBluesProg")
-            if blueRibbonProg < 1 then
-                player:setCharVar("BlueRibbonBluesProg", 1)
-            elseif blueRibbonProg == 3 then
-                player:setCharVar("BlueRibbonBluesProg", 4)
-            end
-            player:addItem(13569)
-            player:messageSpecial(ID.text.ITEM_OBTAINED, 13569)
-        else
-            player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 13569)
+    if (csid == 376 or csid == 377) and option == 1 and npcUtil.giveItem(player, 13569) then
+        local blueRibbonProg = player:getCharVar("BlueRibbonBluesProg")
+
+        if blueRibbonProg < 1 then
+            player:setCharVar("BlueRibbonBluesProg", 1)
+        elseif blueRibbonProg == 3 then
+            player:setCharVar("BlueRibbonBluesProg", 4)
         end
     end
 end
