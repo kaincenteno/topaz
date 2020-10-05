@@ -16,17 +16,17 @@ end
 
 function onTrigger(player, npc)
     local RegionOwner = GetRegionOwner(tpz.region.KUZOTZ)
+    local stock =
+    {
+        916,   855,  -- Cactuar Needle
+        4412,  299,  -- Thundermelon
+        4491,  184   -- Watermelon
+    }
+
     if RegionOwner ~= tpz.nation.WINDURST then
         player:showText(npc, ID.text.NHOBI_ZALKIA_CLOSED_DIALOG)
     else
         player:showText(npc, ID.text.NHOBI_ZALKIA_OPEN_DIALOG)
-
-        local stock =
-        {
-            916,   855,  -- Cactuar Needle
-            4412,  299,  -- Thundermelon
-            4491,  184   -- Watermelon
-        }
         tpz.shop.general(player, stock, WINDURST)
     end
 end

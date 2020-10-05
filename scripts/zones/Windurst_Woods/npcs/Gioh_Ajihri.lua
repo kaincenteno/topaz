@@ -11,7 +11,11 @@ require("scripts/globals/titles")
 -----------------------------------
 
 function onTrade(player, npc, trade)
-    if player:getCharVar("GiohAijhriSpokenTo") == 1 and not player:needToZone() and npcUtil.tradeHas(trade, 13360) then
+    if
+        player:getCharVar("GiohAijhriSpokenTo") == 1 and
+        not player:needToZone() and
+        npcUtil.tradeHas(trade, 13360)
+    then
         player:startEvent(490)
     end
 end
@@ -27,7 +31,10 @@ function onTrigger(player, npc)
         end
     elseif twinstoneBonding == QUEST_ACCEPTED then
         player:startEvent(488, 0, 13360)
-    elseif twinstoneBonding == QUEST_AVAILABLE and player:getFameLevel(WINDURST) >= 2 then
+    elseif
+        twinstoneBonding == QUEST_AVAILABLE and
+        player:getFameLevel(WINDURST) >= 2
+    then
         player:startEvent(487, 0, 13360)
     else
         player:startEvent(424)
@@ -45,7 +52,6 @@ function onEventFinish(player, csid, option)
         player:confirmTrade()
         player:needToZone(true)
         player:setCharVar("GiohAijhriSpokenTo", 0)
-
         if player:getQuestStatus(WINDURST, tpz.quest.id.windurst.TWINSTONE_BONDING) == QUEST_ACCEPTED then
             npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.TWINSTONE_BONDING, {
                 item = 17154,

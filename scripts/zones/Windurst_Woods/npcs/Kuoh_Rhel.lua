@@ -21,28 +21,44 @@ function onTrigger(player, npc)
     local chocobilious = player:getQuestStatus(WINDURST, tpz.quest.id.windurst.CHOCOBILIOUS)
 
     -- IN A STEW
-    if inAStew == QUEST_AVAILABLE and chocobilious == QUEST_COMPLETED and player:getFameLevel(WINDURST) >= 3 then
+    if
+        inAStew == QUEST_AVAILABLE and
+        chocobilious == QUEST_COMPLETED and
+        player:getFameLevel(WINDURST) >= 3
+    then
         if player:needToZone() then
             player:startEvent(232) -- Post quest dialog from Chocobilious
         else
             player:startEvent(235) -- IAS start
         end
-    elseif inAStewCS == 4 and player:hasKeyItem(tpz.ki.RANPIMONPIS_SPECIAL_STEW) then
+    elseif
+        inAStewCS == 4 and
+        player:hasKeyItem(tpz.ki.RANPIMONPIS_SPECIAL_STEW)
+    then
         player:startEvent(239) -- IAS turn in
     elseif inAStew == QUEST_ACCEPTED then
         player:startEvent(236) -- reminder dialog
     -- Uncomment once conquest tally in place
     --elseif inAStew == QUEST_COMPLETED then
         --player:startEvent(240) -- new dialog between repeats
-    elseif (inAStew == QUEST_COMPLETED) then
+    elseif inAStew == QUEST_COMPLETED then
         player:startEvent(234) -- start repeat
 
     -- CHOCOBILIOUS
-    elseif chocobilious == QUEST_AVAILABLE and player:getFameLevel(WINDURST) >= 2 then
+    elseif
+        chocobilious == QUEST_AVAILABLE and
+        player:getFameLevel(WINDURST) >= 2
+    then
         player:startEvent(224) -- Start quest
-    elseif chocobilious == QUEST_COMPLETED and player:needToZone() then
+    elseif
+        chocobilious == QUEST_COMPLETED and
+        player:needToZone()
+    then
         player:startEvent(232) -- Quest complete
-    elseif chocobilious == QUEST_ACCEPTED and player:getCharVar("ChocobiliousQuest") == 2 then
+    elseif
+        chocobilious == QUEST_ACCEPTED and
+        player:getCharVar("ChocobiliousQuest") == 2
+    then
         player:startEvent(231) -- Talked to Tapoh
     elseif chocobilious == QUEST_ACCEPTED then
         player:startEvent(225) -- Post quest accepted
@@ -58,7 +74,10 @@ end
 
 function onEventFinish(player, csid, option)
     -- CHOCOBILIOUS
-    if csid == 224 and option == 1 then
+    if
+        csid == 224 and
+        option == 1
+    then
         player:addQuest(WINDURST, tpz.quest.id.windurst.CHOCOBILIOUS)
     elseif csid == 231 then
         npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.CHOCOBILIOUS, {
@@ -79,7 +98,10 @@ function onEventFinish(player, csid, option)
             var = "IASvar"
         })
         player:delKeyItem(tpz.ki.RANPIMONPIS_SPECIAL_STEW)
-    elseif csid == 234 and option == 1 then -- start repeat
+    elseif
+        csid == 234 and
+        option == 1
+    then -- start repeat
         player:setCharVar("IASvar", 3)
     end
 end

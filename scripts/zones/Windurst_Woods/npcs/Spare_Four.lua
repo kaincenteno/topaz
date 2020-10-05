@@ -14,7 +14,10 @@ function onTrigger(player, npc)
     local AGreetingCardian = player:getQuestStatus(WINDURST, tpz.quest.id.windurst.A_GREETING_CARDIAN)
     local AGCcs = player:getCharVar("AGreetingCardian_Event")
 
-    if AGreetingCardian == QUEST_ACCEPTED and AGCcs == 2 then
+    if
+        AGreetingCardian == QUEST_ACCEPTED and
+        AGCcs == 2
+    then
         player:startEvent(295) -- A Greeting Cardian step two
     else
         player:startEvent(281) -- standard dialog

@@ -12,7 +12,10 @@ require("scripts/globals/npc_util")
 function onTrade(player, npc, trade)
     local missionStatus = player:getCharVar("MissionStatus")
 
-    if player:getCurrentMission(SANDORIA) == tpz.mission.id.sandoria.JOURNEY_TO_WINDURST and npcUtil.tradeHas(trade, {{12298, 2}}) then -- Parana Shield x2
+    if
+        player:getCurrentMission(SANDORIA) == tpz.mission.id.sandoria.JOURNEY_TO_WINDURST and
+        npcUtil.tradeHas(trade, {{12298, 2}}) -- Parana Shield x2
+    then
         if missionStatus == 5 then
             player:startEvent(455) -- before deliver shield to the yagudo
         elseif missionStatus == 6 then
@@ -38,16 +41,25 @@ function onTrigger(player, npc)
         end
     -- San d'Oria Mission 2-3 Part I - Windurst > Bastok
     elseif player:getCurrentMission(SANDORIA) == tpz.mission.id.sandoria.JOURNEY_TO_WINDURST then
-        if missionStatus >= 3 and missionStatus <= 5 then
+        if
+            missionStatus >= 3 and
+            missionStatus <= 5
+        then
             player:startEvent(449)
         elseif missionStatus == 6 then
             player:startEvent(456)
         end
     -- San d'Oria Mission 2-3 Part II - Bastok > Windurst
     elseif player:getCurrentMission(SANDORIA) == tpz.mission.id.sandoria.JOURNEY_TO_WINDURST2 then
-        if missionStatus == 7 or missionStatus == 8 then
+        if
+            missionStatus == 7 or
+            missionStatus == 8
+        then
             player:startEvent(463)
-        elseif missionStatus == 9 or missionStatus == 10 then
+        elseif
+            missionStatus == 9 or
+            missionStatus == 10
+        then
             player:startEvent(467)
         end
     else

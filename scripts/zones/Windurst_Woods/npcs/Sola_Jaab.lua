@@ -10,8 +10,10 @@ require("scripts/globals/quests")
 -----------------------------------
 
 function onTrade(player, npc, trade)
-    if player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.RIDING_ON_THE_CLOUDS) == QUEST_ACCEPTED
-        and player:getCharVar("ridingOnTheClouds_4") == 7 and npcUtil.tradeHas(trade, 1127)
+    if
+        player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.RIDING_ON_THE_CLOUDS) == QUEST_ACCEPTED and
+        player:getCharVar("ridingOnTheClouds_4") == 7 and
+        npcUtil.tradeHas(trade, 1127)
     then -- Kindred Seal
         player:confirmTrade()
         player:setCharVar("ridingOnTheClouds_4", 0)

@@ -7,6 +7,7 @@
 local ID = require("scripts/zones/Windurst_Woods/IDs")
 require("scripts/globals/quests")
 require("scripts/globals/titles")
+require("scripts/globals/npc_util")
 -----------------------------------
 
 function onTrade(player, npc, trade)
@@ -20,8 +21,9 @@ function onTrigger(player, npc)
     local MakingHeadlines = player:getQuestStatus(WINDURST, tpz.quest.id.windurst.MAKING_HEADLINES)
     local WildcatWindurst = player:getCharVar("WildcatWindurst")
 
-    if player:getQuestStatus(WINDURST, tpz.quest.id.windurst.LURE_OF_THE_WILDCAT) == QUEST_ACCEPTED
-        and not player:getMaskBit(WildcatWindurst, 3)
+    if
+        player:getQuestStatus(WINDURST, tpz.quest.id.windurst.LURE_OF_THE_WILDCAT) == QUEST_ACCEPTED and
+        not player:getMaskBit(WildcatWindurst, 3)
     then
         player:startEvent(731)
     elseif MakingHeadlines == 1 then
@@ -60,8 +62,7 @@ end
 function onEventFinish(player, csid, option)
     if csid == 381 then
         local prog = player:getCharVar("QuestMakingHeadlines_var")
-        player:addKeyItem(tpz.ki.WINDURST_WOODS_SCOOP)
-        player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.WINDURST_WOODS_SCOOP)
+        npcUtil.giveKeyItem(player, tpz.ki.WINDURST_WOODS_SCOOP)
         player:setCharVar("QuestMakingHeadlines_var", prog+8)
     elseif csid == 731 then
         player:setMaskBit(player:getCharVar("WildcatWindurst"), "WildcatWindurst", 3, true)

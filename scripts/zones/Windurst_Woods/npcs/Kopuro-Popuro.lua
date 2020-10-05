@@ -34,7 +34,10 @@ function onTrade(player, npc, trade)
         end
 
     -- THE ALL NEW C-3000
-    elseif allNewC3000 == QUEST_ACCEPTED or allNewC3000 == QUEST_COMPLETED then
+    elseif
+        allNewC3000 == QUEST_ACCEPTED or
+        allNewC3000 == QUEST_COMPLETED
+    then
         if npcUtil.tradeHas(trade, {889, 939}) then
             player:startEvent(657, 0, 889, 939) -- Correct items given, complete quest in onEventUpdate
         else
@@ -52,7 +55,11 @@ function onTrigger(player, npc)
     local allNewC3000 = player:getQuestStatus(WINDURST, tpz.quest.id.windurst.THE_ALL_NEW_C_3000)
 
     -- THE ALL NEW C-3000
-    if legendaryPlanB == QUEST_COMPLETED and allNewC3000 == QUEST_AVAILABLE and player:getFameLevel(WINDURST) >= 4 then
+    if
+        legendaryPlanB == QUEST_COMPLETED and
+        allNewC3000 == QUEST_AVAILABLE and
+        player:getFameLevel(WINDURST) >= 4
+    then
         if player:needToZone() then
             player:startEvent(316) -- Post quest text from legendaryPlanB
         else
@@ -62,11 +69,18 @@ function onTrigger(player, npc)
         player:startEvent(659, 0, 889, 939)
 
     -- A GREETING CARDIAN
-    elseif aGreetingCardian == QUEST_ACCEPTED and aGreetingCardianCS == 5 then
+    elseif
+        aGreetingCardian == QUEST_ACCEPTED and
+        aGreetingCardianCS == 5
+    then
         player:startEvent(301) -- Supplemental text when aGreetingCardian in progress, right before completion
 
     -- LEGENDARY PLAN B
-    elseif aGreetingCardian == QUEST_COMPLETED and legendaryPlanB == QUEST_AVAILABLE and player:getFameLevel(WINDURST) >= 3 then
+    elseif
+        aGreetingCardian == QUEST_COMPLETED and
+        legendaryPlanB == QUEST_AVAILABLE and
+        player:getFameLevel(WINDURST) >= 3
+    then
         if player:needToZone() then
             player:startEvent(306) -- Supplemental text for aGreetingCardian before start of legendaryPlanB
         else
@@ -96,7 +110,10 @@ end
 
 function onEventFinish(player, csid, option)
     -- THE ALL NEW C-2000
-    if csid == 285 and option ~= 2 then  -- option 2 is declining the quest for the second question
+    if
+        csid == 285 and
+        option ~= 2 -- option 2 is declining the quest for the second question
+    then
         player:addQuest(WINDURST, tpz.quest.id.windurst.THE_ALL_NEW_C_2000)
     elseif csid == 292 then
         npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.THE_ALL_NEW_C_2000, {
@@ -109,10 +126,12 @@ function onEventFinish(player, csid, option)
     -- LEGENDARY PLAN B
     elseif csid == 308 then
         player:addQuest(WINDURST, tpz.quest.id.windurst.LEGENDARY_PLAN_B)
-    elseif csid == 314 and npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.LEGENDARY_PLAN_B, {
-        item = 12749,
-        gil = 700
-    })
+    elseif
+        csid == 314 and
+        npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.LEGENDARY_PLAN_B, {
+            item = 12749,
+            gil = 700
+        })
     then
         player:confirmTrade()
         player:needToZone(true)

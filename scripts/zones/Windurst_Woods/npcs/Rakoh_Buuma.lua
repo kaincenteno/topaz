@@ -10,6 +10,7 @@ require("scripts/globals/keyitems")
 require("scripts/globals/missions")
 require("scripts/globals/titles")
 require("scripts/globals/zone")
+require("scripts/globals/npc_util")
 -----------------------------------
 
 function onTrigger(player, npc)
@@ -20,10 +21,14 @@ function onTrigger(player, npc)
         local MissionStatus = player:getCharVar("MissionStatus")
         local pRank = player:getRank()
         local cs, p, offset = getMissionOffset(player, 1, CurrentMission, MissionStatus)
+        local param3 = 0
 
-        if CurrentMission <= tpz.mission.id.windurst.THE_SHADOW_AWAITS
-            and (cs ~= 0 or offset ~= 0
-            or (CurrentMission == tpz.mission.id.windurst.THE_HORUTOTO_RUINS_EXPERIMENT and offset == 0))
+        if
+            CurrentMission <= tpz.mission.id.windurst.THE_SHADOW_AWAITS and
+            (cs ~= 0 or
+            offset ~= 0 or
+            (CurrentMission == tpz.mission.id.windurst.THE_HORUTOTO_RUINS_EXPERIMENT and
+            offset == 0))
         then
             if cs == 0 then
                 player:showText(npc, ORIGINAL_MISSION_OFFSET + offset) -- dialog after accepting mission
@@ -47,8 +52,6 @@ function onTrigger(player, npc)
             -- NPC dialog changes when starting 3-2 according to whether it's the first time or being repeated
             if player:hasCompletedMission(WINDURST, tpz.mission.id.windurst.WRITTEN_IN_THE_STARS) then
                 param3 = 1
-            else
-                param3 = 0
             end
             player:startEvent(114, flagMission, 0, param3, 0, tpz.ki.STAR_CRESTED_SUMMONS, repeatMission)
         end
@@ -61,11 +64,17 @@ end
 function onEventFinish(player, csid, option)
     finishMissionTimeline(player, 1, csid, option)
 
-    if csid == 121 and option == 1 then
+    if
+        csid == 121 and
+        option == 1
+    then
         player:addTitle(tpz.title.NEW_BUUMAS_BOOMERS_RECRUIT)
-    elseif csid == 114 and (option == 12 or option == 15) then
-        player:addKeyItem(tpz.ki.STAR_CRESTED_SUMMONS)
-        player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.STAR_CRESTED_SUMMONS)
+    elseif
+        csid == 114 and
+        (option == 12 or
+        option == 15)
+    then
+        npcUtil.giveKeyItem(player, tpz.ki.STAR_CRESTED_SUMMONS)
     elseif csid == 632 then
         player:setCharVar("WWoodsRTenText", 1)
     end

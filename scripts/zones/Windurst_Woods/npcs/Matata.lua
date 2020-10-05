@@ -17,9 +17,15 @@ function onTrigger(player, npc)
     local CB = player:getQuestStatus(WINDURST, tpz.quest.id.windurst.CHOCOBILIOUS)
 
     -- IN A STEW
-    if IAS == QUEST_ACCEPTED and IASvar == 1 then
+    if
+        IAS == QUEST_ACCEPTED and
+        IASvar == 1
+    then
         player:startEvent(233, 0, 0, 4545) -- In a Stew in progress
-    elseif IAS == QUEST_ACCEPTED and IASvar == 2 then
+    elseif
+        IAS == QUEST_ACCEPTED and
+        IASvar == 2
+    then
         player:startEvent(237) -- In a Stew reminder
     elseif IAS == QUEST_COMPLETED then
         player:startEvent(241) -- new dialog after In a Stew

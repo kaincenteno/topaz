@@ -33,7 +33,10 @@ end
 
 function onEventFinish(player, csid, option)
     local Cost = getAdvImageSupportCost(player, 8)
-    if csid == 10013 and option == 1 then
+    if
+        csid == 10013 and
+        option == 1
+    then
         player:delGil(Cost)
         player:messageSpecial(ID.text.IMAGE_SUPPORT, 0, 4, 0)
         player:addStatusEffect(tpz.effect.CLOTHCRAFT_IMAGERY, 3, 0, 480)

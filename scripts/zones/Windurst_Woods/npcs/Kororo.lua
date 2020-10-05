@@ -24,15 +24,28 @@ function onTrigger(player, npc)
     local AGCtime = player:getCharVar("AGreetingCardian_timer")
 
     -- A Greeting Cardian
-    if C2000 == QUEST_COMPLETED and AGreetingCardian == QUEST_AVAILABLE and player:getFameLevel(WINDURST) >= 3 then
+    if
+        C2000 == QUEST_COMPLETED and
+        AGreetingCardian == QUEST_AVAILABLE and
+        player:getFameLevel(WINDURST) >= 3
+    then
         player:startEvent(296) -- A Greeting Cardian quest start
-    elseif AGreetingCardian == QUEST_ACCEPTED and AGCcs == 3 then
-        if player:needToZone() or tonumber(os.date("%j")) == AGCtime then
+    elseif
+        AGreetingCardian == QUEST_ACCEPTED and
+        AGCcs == 3
+    then
+        if
+            player:needToZone() or
+            tonumber(os.date("%j")) == AGCtime
+        then
             player:startEvent(277) -- standard dialog if JP midnight has not passed
         else
             player:startEvent(298) -- A Greeting Cardian part two
         end
-    elseif AGreetingCardian == QUEST_ACCEPTED and AGCcs == 5 then
+    elseif
+        AGreetingCardian == QUEST_ACCEPTED and
+        AGCcs == 5
+    then
         player:startEvent(303) -- A Greeting Cardian finish
 
     -- Might be Legendary Plan B, most likely Lost Chick related.
@@ -57,10 +70,12 @@ function onEventFinish(player, csid, option)
         player:needToZone(true) -- wait one day and zone after next step
     elseif csid == 298 then
         player:setCharVar("AGreetingCardian_Event", 4)
-    elseif csid == 303 and npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.A_GREETING_CARDIAN, {
-        item = 13330,
-        var = {"AGreetingCardian_timer", "AGreetingCardian_Event"}
-    })
+    elseif
+        csid == 303 and
+        npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.A_GREETING_CARDIAN, {
+            item = 13330,
+            var = {"AGreetingCardian_timer", "AGreetingCardian_Event"}
+        })
     then
         player:needToZone(true) -- zone before starting Legendary Plan B
     end

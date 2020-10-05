@@ -33,9 +33,14 @@ function onEventUpdate(player, csid, option)
 end
 
 function onEventFinish(player, csid, option)
-    if csid == 333 and option == 1 then
+    if
+        csid == 333 and
+        option == 1
+    then
         player:addQuest(WINDURST, tpz.quest.id.windurst.CREEPY_CRAWLIES)
-    elseif csid == 335 and npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.CREEPY_CRAWLIES, {
+    elseif
+        csid == 335 and
+        npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.CREEPY_CRAWLIES, {
             gil = 600,
             fame = 0,
             title = tpz.title.CRAWLER_CULLER

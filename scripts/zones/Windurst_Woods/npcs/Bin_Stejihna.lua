@@ -14,28 +14,25 @@ end
 
 function onTrigger(player, npc)
     local RegionOwner = GetRegionOwner(tpz.region.ZULKHEIM)
+    local rank = getNationRank(tpz.nation.WINDURST)
+    local stock =
+    {
+        622,     44,  -- Dried Marjoram
+        4372,    44,  -- Giant Sheep Meat
+        4366,    22,  -- La Theine Cabbage
+        611,     36,  -- Rye Flour
+        610,     55,  -- San d'Orian Flour
+        4378,    55   -- Selbina Milk
+    }
+
     if RegionOwner ~= tpz.nation.WINDURST then
         player:showText(npc, ID.text.BIN_STEJIHNA_CLOSED_DIALOG)
     else
-        player:showText(npc, ID.text.BIN_STEJIHNA_OPEN_DIALOG)
-
-        local rank = getNationRank(tpz.nation.WINDURST)
         if rank ~= 3 then
             table.insert(stock, 1840) --Semolina
             table.insert(stock, 1840)
         end
-
-        local stock =
-        {
-            1840,  1840,  -- Semolina
-            4372,    44,  -- Giant Sheep Meat
-            622,     44,  -- Dried Marjoram
-            610,     55,  -- San d'Orian Flour
-            611,     36,  -- Rye Flour
-            4366,    22,  -- La Theine Cabbage
-            4378,    55   -- Selbina Milk
-        }
-
+        player:showText(npc, ID.text.BIN_STEJIHNA_OPEN_DIALOG)
         tpz.shop.general(player, stock, WINDURST)
     end
 end

@@ -14,11 +14,17 @@ require("scripts/globals/titles")
 
 function onTrade(player, npc, trade)
     -- THE KIND CARDIAN
-    if player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.THE_KIND_CARDIAN) == QUEST_ACCEPTED and npcUtil.tradeHas(trade, 969) then
+    if
+        player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.THE_KIND_CARDIAN) == QUEST_ACCEPTED and
+        npcUtil.tradeHas(trade, 969)
+    then
         player:startEvent(397)
 
     -- CAN CARDIANS CRY?
-    elseif player:getQuestStatus(WINDURST, tpz.quest.id.windurst.CAN_CARDIANS_CRY) == QUEST_ACCEPTED and npcUtil.tradeHas(trade, 551) then
+    elseif
+        player:getQuestStatus(WINDURST, tpz.quest.id.windurst.CAN_CARDIANS_CRY) == QUEST_ACCEPTED
+        and npcUtil.tradeHas(trade, 551)
+    then
         player:startEvent(325, 0, 20000, 5000)
     end
 end
@@ -79,7 +85,11 @@ function onTrigger(player, npc)
         end
 
     -- CAN CARDIANS CRY?
-    elseif allNewC3000 == QUEST_COMPLETED and canCardiansCry == QUEST_AVAILABLE and player:getFameLevel(WINDURST) >= 5 then
+    elseif
+        allNewC3000 == QUEST_COMPLETED and
+        canCardiansCry == QUEST_AVAILABLE and
+        player:getFameLevel(WINDURST) >= 5
+    then
         player:startEvent(319, 0, 20000) -- start quest
     elseif canCardiansCry == QUEST_ACCEPTED then
         player:startEvent(320, 0, 20000) -- reminder
@@ -96,22 +106,17 @@ function onEventUpdate(player, csid, option)
 end
 
 function onEventFinish(player, csid, option)
-
     -- WINDURST 1-2: THE HEART OF THE MATTER
     if csid == 137 then
         player:setCharVar("MissionStatus", 1)
-
-        npcUtil.giveKeyItem(player,
-            {
-                tpz.ki.FIRST_DARK_MANA_ORB,
-                tpz.ki.SECOND_DARK_MANA_ORB,
-                tpz.ki.THIRD_DARK_MANA_ORB,
-                tpz.ki.FOURTH_DARK_MANA_ORB,
-                tpz.ki.FIFTH_DARK_MANA_ORB,
-                tpz.ki.SIXTH_DARK_MANA_ORB
-            }
-        )
-
+        npcUtil.giveKeyItem(player, {
+            tpz.ki.FIRST_DARK_MANA_ORB,
+            tpz.ki.SECOND_DARK_MANA_ORB,
+            tpz.ki.THIRD_DARK_MANA_ORB,
+            tpz.ki.FOURTH_DARK_MANA_ORB,
+            tpz.ki.FIFTH_DARK_MANA_ORB,
+            tpz.ki.SIXTH_DARK_MANA_ORB
+        })
         player:setCharVar("MissionStatus_orb1", 1) -- Set the orb variables: 1 = not handled, 2 = handled
         player:setCharVar("MissionStatus_orb2", 1)
         player:setCharVar("MissionStatus_orb3", 1)
@@ -120,14 +125,12 @@ function onEventFinish(player, csid, option)
         player:setCharVar("MissionStatus_orb6", 1)
     elseif csid == 143 or csid == 145 then
         finishMissionTimeline(player, 1, csid, option)
-
         player:setCharVar("MissionStatus_orb1", 0)
         player:setCharVar("MissionStatus_orb2", 0)
         player:setCharVar("MissionStatus_orb3", 0)
         player:setCharVar("MissionStatus_orb4", 0)
         player:setCharVar("MissionStatus_orb5", 0)
         player:setCharVar("MissionStatus_orb6", 0)
-
         player:delKeyItem(tpz.ki.FIRST_GLOWING_MANA_ORB) -- Remove the glowing orb key items
         player:delKeyItem(tpz.ki.SECOND_GLOWING_MANA_ORB)
         player:delKeyItem(tpz.ki.THIRD_GLOWING_MANA_ORB)
@@ -160,7 +163,10 @@ function onEventFinish(player, csid, option)
         player:delKeyItem(tpz.ki.LETTER_FROM_ZONPAZIPPA)
 
     -- THE KIND CARDIAN
-    elseif csid == 392 and option == 1 then
+    elseif
+        csid == 392 and
+        option == 1
+    then
         player:setCharVar("theKindCardianVar", 1)
     elseif csid == 397 then
         player:delKeyItem(tpz.ki.TWO_OF_SWORDS)
@@ -171,7 +177,8 @@ function onEventFinish(player, csid, option)
     -- CAN CARDIANS CRY?
     elseif csid == 319 then
         player:addQuest(WINDURST, tpz.quest.id.windurst.CAN_CARDIANS_CRY)
-    elseif csid == 325 and npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.CAN_CARDIANS_CRY, {gil=5000}) then
+    elseif csid == 325 then
         player:confirmTrade()
+        npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.CAN_CARDIANS_CRY, {gil=5000})
     end
 end

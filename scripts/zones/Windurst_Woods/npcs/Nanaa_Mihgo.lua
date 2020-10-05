@@ -44,8 +44,11 @@ function onTrigger(player, npc)
     local lvl = player:getMainLvl()
 
     -- WINDURST 2-1: LOST FOR WORDS
-    if player:getCurrentMission(WINDURST) == tpz.mission.id.windurst.LOST_FOR_WORDS and missionStatus > 0 and
-        missionStatus < 5 then
+    if
+        player:getCurrentMission(WINDURST) == tpz.mission.id.windurst.LOST_FOR_WORDS and
+        missionStatus > 0 and
+        missionStatus < 5
+    then
         if missionStatus == 1 then
             player:startEvent(165, 0, tpz.ki.LAPIS_CORAL, tpz.ki.LAPIS_MONOCLE)
         elseif missionStatus == 2 then
@@ -56,60 +59,89 @@ function onTrigger(player, npc)
             player:startEvent(170)
         end
 
-        -- LURE OF THE WILDCAT (WINDURST)
-    elseif player:getQuestStatus(WINDURST, tpz.quest.id.windurst.LURE_OF_THE_WILDCAT) == QUEST_ACCEPTED and
-        not player:getMaskBit(wildcatWindurst, 4) then
+    -- LURE OF THE WILDCAT (WINDURST)
+    elseif
+        player:getQuestStatus(WINDURST, tpz.quest.id.windurst.LURE_OF_THE_WILDCAT) == QUEST_ACCEPTED and
+        not player:getMaskBit(wildcatWindurst, 4)
+    then
         player:startEvent(732)
 
-        -- CRYING OVER ONIONS
+    -- CRYING OVER ONIONS
     elseif player:getCharVar("CryingOverOnions") == 1 then
         player:startEvent(598)
 
-        -- THE TENSHODO SHOWDOWN
-    elseif job == tpz.job.THF and lvl >= AF1_QUEST_LEVEL and tenshodoShowdown == QUEST_AVAILABLE then
+    -- THE TENSHODO SHOWDOWN
+    elseif
+        job == tpz.job.THF and
+        lvl >= AF1_QUEST_LEVEL and
+        tenshodoShowdown == QUEST_AVAILABLE
+    then
         player:startEvent(496) -- start quest
     elseif tenshodoShowdownCS == 1 then
         player:startEvent(497) -- before cs at tensho HQ
     elseif tenshodoShowdownCS >= 2 then
         player:startEvent(498) -- after cs at tensho HQ
-    elseif job == tpz.job.THF and lvl < AF2_QUEST_LEVEL and tenshodoShowdown == QUEST_COMPLETED then
+    elseif
+        job == tpz.job.THF and
+        lvl < AF2_QUEST_LEVEL and
+        tenshodoShowdown == QUEST_COMPLETED
+    then
         player:startEvent(503) -- standard dialog after
 
-        -- THICK AS THIEVES
-    elseif job == tpz.job.THF and lvl >= AF2_QUEST_LEVEL and thickAsThieves == QUEST_AVAILABLE
-        and tenshodoShowdown == QUEST_COMPLETED
+    -- THICK AS THIEVES
+    elseif
+        job == tpz.job.THF and
+        lvl >= AF2_QUEST_LEVEL and
+        thickAsThieves == QUEST_AVAILABLE and
+        tenshodoShowdown == QUEST_COMPLETED
     then
         player:startEvent(504) -- start quest
     elseif thickAsThieves == QUEST_ACCEPTED then
-        if player:hasKeyItem(tpz.ki.FIRST_SIGNED_FORGED_ENVELOPE) and
-            player:hasKeyItem(tpz.ki.SECOND_SIGNED_FORGED_ENVELOPE) then
+        if
+            player:hasKeyItem(tpz.ki.FIRST_SIGNED_FORGED_ENVELOPE) and
+            player:hasKeyItem(tpz.ki.SECOND_SIGNED_FORGED_ENVELOPE)
+        then
             player:startEvent(508) -- complete quest
         else
             player:startEvent(505, 0, tpz.ki.GANG_WHEREABOUTS_NOTE) -- before complete grappling and gambling sidequests
         end
 
-        -- HITTING THE MARQUISATE
-    elseif job == tpz.job.THF and lvl >= AF3_QUEST_LEVEL and thickAsThieves == QUEST_COMPLETED
-        and hittingTheMarquisate == QUEST_AVAILABLE
+    -- HITTING THE MARQUISATE
+    elseif
+        job == tpz.job.THF and
+        lvl >= AF3_QUEST_LEVEL and
+        thickAsThieves == QUEST_COMPLETED and
+        hittingTheMarquisate == QUEST_AVAILABLE
     then
         player:startEvent(512) -- start quest
-    elseif hittingTheMarquisateYatnielCS == 3 and hittingTheMarquisateHagainCS == 9 then
+    elseif
+        hittingTheMarquisateYatnielCS == 3 and
+        hittingTheMarquisateHagainCS == 9
+    then
         player:startEvent(516) -- finish first part
     elseif hittingTheMarquisateNanaaCS == 1 then
         player:startEvent(517) -- second part
 
-        -- ROCK RACKETEER
-    elseif mihgosAmigo == QUEST_COMPLETED and rockRacketeer == QUEST_AVAILABLE
-        and player:getFameLevel(WINDURST) >= 3
+    -- ROCK RACKETEER
+    elseif
+        mihgosAmigo == QUEST_COMPLETED and
+        rockRacketeer == QUEST_AVAILABLE and
+        player:getFameLevel(WINDURST) >= 3
     then
         if player:needToZone() then
             player:startEvent(89) -- complete
         else
             player:startEvent(93) -- quest start
         end
-    elseif rockRacketeer == QUEST_ACCEPTED and rockRacketeerCS == 1 then
+    elseif
+        rockRacketeer == QUEST_ACCEPTED and
+        rockRacketeerCS == 1
+    then
         player:startEvent(98) -- advance quest talk to Varun
-    elseif rockRacketeer == QUEST_ACCEPTED and rockRacketeerCS == 2 then
+    elseif
+        rockRacketeer == QUEST_ACCEPTED and
+        rockRacketeerCS == 2
+    then
         player:startEvent(95) -- not sold reminder
     elseif rockRacketeer == QUEST_ACCEPTED then
         player:startEvent(94) -- quest reminder
@@ -139,7 +171,10 @@ end
 
 function onEventFinish(player, csid, option)
     -- WINDURST 2-1: LOST FOR WORDS
-    if csid == 165 and option == 1 then
+    if
+        csid == 165 and
+        option == 1
+    then
         npcUtil.giveKeyItem(player, tpz.ki.LAPIS_MONOCLE)
         player:setCharVar("MissionStatus", 2)
     elseif csid == 169 then
@@ -160,12 +195,20 @@ function onEventFinish(player, csid, option)
         npcUtil.giveKeyItem(player, tpz.ki.LETTER_FROM_THE_TENSHODO)
 
         -- THICK AS THIEVES
-    elseif (csid == 504 and option == 1) then -- start quest "as thick as thieves"
+    elseif
+        csid == 504 and
+        option == 1
+    then -- start quest "as thick as thieves"
         player:addQuest(WINDURST, tpz.quest.id.windurst.AS_THICK_AS_THIEVES)
         player:setCharVar("thickAsThievesGamblingCS", 1)
-        npcUtil.giveKeyItem(player,
-            {tpz.ki.GANG_WHEREABOUTS_NOTE, tpz.ki.FIRST_FORGED_ENVELOPE, tpz.ki.SECOND_FORGED_ENVELOPE})
-    elseif csid == 508 and npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.AS_THICK_AS_THIEVES, {
+        npcUtil.giveKeyItem(player, {
+            tpz.ki.GANG_WHEREABOUTS_NOTE,
+            tpz.ki.FIRST_FORGED_ENVELOPE,
+            tpz.ki.SECOND_FORGED_ENVELOPE
+        })
+    elseif
+        csid == 508 and
+        npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.AS_THICK_AS_THIEVES, {
             item = 12514,
             var = "thickAsThievesGamblingCS"
         })
@@ -194,9 +237,14 @@ function onEventFinish(player, csid, option)
         player:setCharVar("rockracketeer_sold", 3)
 
         -- MIHGO'S AMIGO
-    elseif csid == 80 or csid == 81 then
+    elseif
+        csid == 80 or
+        csid == 81
+    then
         player:addQuest(WINDURST, tpz.quest.id.windurst.MIHGO_S_AMIGO)
-    elseif csid == 88 and npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.MIHGO_S_AMIGO, {
+    elseif
+        csid == 88 and
+        npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.MIHGO_S_AMIGO, {
             gil = 200,
             title = tpz.title.CAT_BURGLAR_GROUPIE,
             fameArea = NORG,

@@ -12,8 +12,6 @@ function onTrade(player, npc, trade)
 end
 
 function onTrigger(player, npc)
-    player:showText(npc, ID.text.WIJETIREN_SHOP_DIALOG)
-
     local stock = {
         4148,   290,       --Antidote
         4509,    10,       --Distilled Water
@@ -24,6 +22,8 @@ function onTrigger(player, npc)
         5014,    98,       --Scroll of Herb Pastoral
         2864,  9200        --Federation Waystone
     }
+
+    player:showText(npc, ID.text.WIJETIREN_SHOP_DIALOG)
     tpz.shop.general(player, stock, WINDURST)
 end
 

@@ -45,9 +45,10 @@ Port Windurst (West to East)
 ]]--
 
 function onTrade(player, npc, trade)
-    if npcUtil.tradeHas(trade, {{"gil", 300}})
-        and player:getQuestStatus(WINDURST, tpz.quest.id.windurst.LURE_OF_THE_WILDCAT) == QUEST_COMPLETED
-        and player:getCurrentMission(TOAU) > tpz.mission.id.toau.IMMORTAL_SENTRIES
+    if
+        npcUtil.tradeHas(trade, {{"gil", 300}}) and
+        player:getQuestStatus(WINDURST, tpz.quest.id.windurst.LURE_OF_THE_WILDCAT) == QUEST_COMPLETED and
+        player:getCurrentMission(TOAU) > tpz.mission.id.toau.IMMORTAL_SENTRIES
     then
         -- Needs a check for at least traded an invitation card to Naja Salaheem
         player:startEvent(794)
@@ -58,7 +59,10 @@ function onTrigger(player, npc)
     local lureWindurst = player:getQuestStatus(WINDURST, tpz.quest.id.windurst.LURE_OF_THE_WILDCAT)
     local wildcatWindurst = player:getCharVar("WildcatWindurst")
 
-    if lureWindurst ~= QUEST_COMPLETED and ENABLE_TOAU == 1 then
+    if
+        lureWindurst ~= QUEST_COMPLETED and
+        ENABLE_TOAU == 1
+    then
         if lureWindurst == QUEST_AVAILABLE then
             player:startEvent(736)
         else
@@ -85,7 +89,9 @@ function onEventFinish(player, csid, option)
         player:addQuest(WINDURST, tpz.quest.id.windurst.LURE_OF_THE_WILDCAT)
         player:setCharVar("WildcatWindurst", 0)
         npcUtil.giveKeyItem(player, tpz.ki.GREEN_SENTINEL_BADGE)
-    elseif csid == 739 and npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.LURE_OF_THE_WILDCAT, {
+    elseif
+        csid == 739 and
+        npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.LURE_OF_THE_WILDCAT, {
             fame = 150,
             keyItem = tpz.ki.GREEN_INVITATION_CARD,
             var = "WildcatWindurst"

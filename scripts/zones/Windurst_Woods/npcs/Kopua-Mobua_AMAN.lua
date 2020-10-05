@@ -13,7 +13,10 @@ end
 function onTrigger(player, npc)
     local var = 0
     if player:getMentor() == 0 then
-        if player:getMainLvl() >= 30 and player:getPlaytime() >= 648000 then
+        if
+            player:getMainLvl() >= 30 and
+            player:getPlaytime() >= 648000
+        then
             var = 1
         end
     elseif player:getMentor() >= 1 then

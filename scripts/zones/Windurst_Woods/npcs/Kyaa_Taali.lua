@@ -32,7 +32,10 @@ function onEventUpdate(player, csid, option)
 end
 
 function onEventFinish(player, csid, option)
-    if csid == 10020 and option == 1 then
+    if
+        csid == 10020 and
+        option == 1
+    then
         player:messageSpecial(ID.text.IMAGE_SUPPORT, 0, 6, 2)
         player:addStatusEffect(tpz.effect.BONECRAFT_IMAGERY, 1, 0, 120)
     end

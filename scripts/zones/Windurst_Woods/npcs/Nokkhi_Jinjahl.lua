@@ -93,7 +93,10 @@ function onTrade(player, npc, trade)
     -- check for invalid items
     for i = 0, 8, 1 do
         local itemId = trade:getItemId(i)
-        if itemId > 0 and itemId ~= 948 then
+        if
+            itemId > 0 and
+            itemId ~= 948
+        then
             local validSlot = false
             for k, v in pairs(ammoList) do
                 if v[1] == itemId then
@@ -117,7 +120,10 @@ function onTrade(player, npc, trade)
     end
 
     -- check for correct number of carnations
-    if carnationsNeeded == 0 or trade:getItemQty(948) ~= carnationsNeeded then
+    if
+        carnationsNeeded == 0 or
+        trade:getItemQty(948) ~= carnationsNeeded
+    then
         player:messageSpecial(ID.text.NOKKHI_BAD_COUNT)
         return
     end

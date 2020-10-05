@@ -16,20 +16,20 @@ end
 
 function onTrigger(player, npc)
     local RegionOwner = GetRegionOwner(tpz.region.DERFLAND)
+    local stock =
+    {
+        4352,  128, -- Derfland Pear
+        617,   142, -- Ginger
+        4545,   62, -- Gysahl Greens
+        1412, 1656, -- Olive Flower
+        633,    14, -- Olive Oil
+        951,   110  -- Wijnruit
+    }
+
     if RegionOwner ~= tpz.nation.WINDURST then
         player:showText(npc, ID.text.TARAIHIPERUNHI_CLOSED_DIALOG)
     else
         player:showText(npc, ID.text.TARAIHIPERUNHI_OPEN_DIALOG)
-
-        local stock =
-        {
-            4352,  128, -- Derfland Pear
-            617,   142, -- Ginger
-            4545,   62, -- Gysahl Greens
-            1412, 1656, -- Olive Flower
-            633,    14, -- Olive Oil
-            951,   110  -- Wijnruit
-        }
         tpz.shop.general(player, stock, WINDURST)
     end
 end

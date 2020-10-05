@@ -54,7 +54,10 @@ function onTrade(player, npc, trade)
     -- check for invalid items
     for i = 0, 8, 1 do
         local itemId = trade:getItemId(i)
-        if itemId > 0 and itemId ~= 951 then
+        if
+            itemId > 0 and
+            itemId ~= 951
+        then
             local validSlot = false
             for k, v in pairs(toolList) do
                 if v[1] == itemId then
@@ -78,7 +81,10 @@ function onTrade(player, npc, trade)
     end
 
     -- check for correct number of wijnfruit
-    if fruitNeeded == 0 or trade:getItemQty(951) ~= fruitNeeded then
+    if
+        fruitNeeded == 0 or
+        trade:getItemQty(951) ~= fruitNeeded
+    then
         player:messageSpecial(ID.text.CLOUD_BAD_COUNT, 951)
         return
     end

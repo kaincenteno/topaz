@@ -13,8 +13,6 @@ function onTrade(player, npc, trade)
 end
 
 function onTrigger(player, npc)
-    player:showText(npc, ID.text.VALERIANO_SHOP_DIALOG)
-
     local stock =
     {
         4394,    10, -- Ginger Cookie
@@ -31,6 +29,8 @@ function onTrigger(player, npc)
         5059, 28520, -- Scroll of Water Carol II
         4996, 123880  -- Scroll of Mage's Ballad III
     }
+
+    player:showText(npc, ID.text.VALERIANO_SHOP_DIALOG)
     tpz.shop.general(player, stock, WINDURST)
 end
 
