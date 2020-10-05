@@ -22,8 +22,8 @@ function onTrade(player, npc, trade)
 
     -- CAN CARDIANS CRY?
     elseif
-        player:getQuestStatus(WINDURST, tpz.quest.id.windurst.CAN_CARDIANS_CRY) == QUEST_ACCEPTED
-        and npcUtil.tradeHas(trade, 551)
+        player:getQuestStatus(WINDURST, tpz.quest.id.windurst.CAN_CARDIANS_CRY) == QUEST_ACCEPTED and
+        npcUtil.tradeHas(trade, 551)
     then
         player:startEvent(325, 0, 20000, 5000)
     end
