@@ -11,10 +11,10 @@ function onTrade(player, npc, trade)
 end
 
 function onTrigger(player, npc)
-
-    local WildcatWindurst = player:getCharVar("WildcatWindurst")
-
-    if (player:getQuestStatus(WINDURST, tpz.quest.id.windurst.LURE_OF_THE_WILDCAT) == QUEST_ACCEPTED and player:getMaskBit(WildcatWindurst, 7) == false) then
+    if
+        player:getQuestStatus(WINDURST, tpz.quest.id.windurst.LURE_OF_THE_WILDCAT) == QUEST_ACCEPTED and
+        player:getMaskBit(player:getCharVar("WildcatWindurst"), 7) == false
+    then
         player:startEvent(497)
     else
         player:startEvent(307)
@@ -26,9 +26,7 @@ function onEventUpdate(player, csid, option)
 end
 
 function onEventFinish(player, csid, option)
-
-    if (csid == 497) then
+    if csid == 497 then
         player:setMaskBit(player:getCharVar("WildcatWindurst"), "WildcatWindurst", 7, true)
     end
-
 end
