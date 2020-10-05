@@ -33,8 +33,8 @@ function onTrade(player, npc, trade)
         player:startEvent(211)
     elseif npcUtil.tradeHasExactly(trade, 1127) then -- Trade Kindred seal
         if
-            player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.RIDING_ON_THE_CLOUDS) == QUEST_ACCEPTED
-            and player:getCharVar("ridingOnTheClouds_4") == 4
+            player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.RIDING_ON_THE_CLOUDS) == QUEST_ACCEPTED and
+            player:getCharVar("ridingOnTheClouds_4") == 4
         then
             player:setCharVar("ridingOnTheClouds_4", 0)
             player:tradeComplete()

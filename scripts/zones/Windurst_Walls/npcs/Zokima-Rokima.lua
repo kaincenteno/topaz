@@ -37,11 +37,11 @@ function onTrigger(player, npc)
             end
         elseif CurrentMission ~= tpz.mission.id.windurst.NONE then
             player:startEvent(91)
-        elseif player:hasCompletedMission(WINDURST, tpz.mission.id.windurst.THE_HORUTOTO_RUINS_EXPERIMENT) == false then
+        elseif not player:hasCompletedMission(WINDURST, tpz.mission.id.windurst.THE_HORUTOTO_RUINS_EXPERIMENT) then
             player:startEvent(96)
-        elseif player:hasCompletedMission(WINDURST, tpz.mission.id.windurst.THE_HEART_OF_THE_MATTER) == false then
+        elseif not player:hasCompletedMission(WINDURST, tpz.mission.id.windurst.THE_HEART_OF_THE_MATTER) then
             player:startEvent(106)
-        elseif player:hasCompletedMission(WINDURST, tpz.mission.id.windurst.THE_PRICE_OF_PEACE) == false then
+        elseif not player:hasCompletedMission(WINDURST, tpz.mission.id.windurst.THE_PRICE_OF_PEACE) then
             player:startEvent(111)
         elseif player:hasKeyItem(tpz.ki.MESSAGE_TO_JEUNO_WINDURST) then
             player:startEvent(150)

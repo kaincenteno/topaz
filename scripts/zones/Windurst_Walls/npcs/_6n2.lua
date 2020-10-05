@@ -33,7 +33,8 @@ function onTrigger(player, npc)
         -- I CAN HEAR A RAINBOW
         if
             player:getQuestStatus(WINDURST, tpz.quest.id.windurst.I_CAN_HEAR_A_RAINBOW) == QUEST_AVAILABLE and
-            player:getMainLvl() >= 30 and player:hasItem(1125)
+            player:getMainLvl() >= 30 and
+            player:hasItem(1125)
         then
             player:startEvent(384, 1125, 1125, 1125, 1125, 1125, 1125, 1125, 1125)
         elseif player:getQuestStatus(WINDURST, tpz.quest.id.windurst.I_CAN_HEAR_A_RAINBOW) == QUEST_ACCEPTED then

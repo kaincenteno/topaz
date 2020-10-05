@@ -23,9 +23,15 @@ function onTrigger(player, npc)
     local CFA2 = player:getQuestStatus(WINDURST, tpz.quest.id.windurst.CURSES_FOILED_AGAIN_2)
 
     -- Curses, Foiled ... Again!?
-    if CFA2 == QUEST_ACCEPTED and player:hasItem(552) == false then
+    if
+        CFA2 == QUEST_ACCEPTED and
+        player:hasItem(552) == false
+    then
         player:startEvent(182) -- get Hiwon's hair
-    elseif CFA2 == QUEST_COMPLETED and MakingHeadlines ~= QUEST_ACCEPTED then
+    elseif
+        CFA2 == QUEST_COMPLETED and
+        MakingHeadlines ~= QUEST_ACCEPTED
+    then
         player:startEvent(185) -- New Dialog after CFA2
 
     -- Making Headlines

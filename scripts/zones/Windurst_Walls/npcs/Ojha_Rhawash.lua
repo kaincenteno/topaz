@@ -19,7 +19,8 @@ local flowerChild = player:getQuestStatus(WINDURST, tpz.quest.id.windurst.FLOWER
         else
             player:startEvent(10000, 0, 239, 2)
         end
-    elseif npcUtil.tradeHasExactly(trade, 957) or   -- Amaryllis
+    elseif
+        npcUtil.tradeHasExactly(trade, 957) or      -- Amaryllis
         npcUtil.tradeHasExactly(trade, 2554) or     -- Asphodel
         npcUtil.tradeHasExactly(trade, 948) or      -- Carnation
         npcUtil.tradeHasExactly(trade, 1120) or     -- Casablanca
@@ -63,9 +64,7 @@ function onEventFinish(player, csid, option)
     if csid == 10000 then
         player:tradeComplete()
         if option == 3002 then
-            npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.FLOWER_CHILD, {
-                fame = 120,
-            })
+            npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.FLOWER_CHILD, {fame = 120})
             player:moghouseFlag(4)
             player:messageSpecial(ID.text.MOGHOUSE_EXIT)
         elseif option == 1 then
