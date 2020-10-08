@@ -82,12 +82,12 @@ function onEventUpdate(player, csid, option)
         csid == 51 and
         option == 1
     then
-        local hasMetPrishe = 0
+        local metPrishe = 0
 
-        if player:getCurrentMission(COP) >= tpz.mission.id.cop.THREE_PATHS then
-            hasMetPrishe = 1 -- Acknowledges the Player Character already knowing Prishe (this is a guestimate)
+        if player:hasCompletedMission(COP, tpz.mission.id.cop.DISTANT_BELIEFS) then
+            metPrishe = 1
         end
-        player:updateEvent(0, hasMetPrishe, 0, 0, 0, 0)
+        player:updateEvent(0, metPrishe, 0, 0, 0, 0)
     end
 end
 
