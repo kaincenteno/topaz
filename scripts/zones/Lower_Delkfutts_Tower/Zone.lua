@@ -83,10 +83,20 @@ function onRegionLeave(player, region)
 end
 
 function onEventUpdate(player, csid, option)
+    if
+        csid == 51 and
+        option == 1
+    then
+        local hasMetPrishe = 0
+
+        if player:getCurrentMission(COP) >= tpz.mission.id.cop.THREE_PATHS then
+            hasMetPrishe = 1 -- Acknowledges the Player Character already knowing Prishe (this is a guestimate)
+        end
+        player:updateEvent(0, hasMetPrishe, 0, 0, 0, 0)
+    end
 end
 
 function onEventFinish(player, csid, option)
-    if csid == 51 then print("option is: hoho "..option) end
     if csid == 15 then
         player:setCharVar("ZilartStatus", 2)
     elseif
