@@ -7,6 +7,7 @@ local ID = require("scripts/zones/RuLude_Gardens/IDs")
 require("scripts/globals/conquest")
 require("scripts/globals/missions")
 require("scripts/globals/quests")
+require("scripts/globals/rhapsodies")
 -----------------------------------
 
 function onInitialize(zone)
@@ -45,7 +46,26 @@ function onRegionEnter(player, region)
     -- printf("regionID: %u", regionID)
 
     if regionID == 1 then
-        if
+
+        -- CRASHING WAVES
+        if player:getCurrentMission(ROV) == tpz.mission.id.rov.CRASHING_WAVES then
+            local tenzenAgent = 0
+            local prisheIsSick = 0
+
+            if player:getCharVar("TenzenAgent") == 1 then
+                tenzenAgent = 1
+            if player:getCurrentMission(COP) == tpz.mission.id.cop.DARKNESS_NAMED then
+                prisheIsSick = 1
+            end
+
+            if tpz.rhapsodies.charactersAvailable(player) then
+                player:startEvent(10244, tenzenAgent, prisheIsSick, 0, 0)
+            elseif player:getCharVar("CrashingWavesBlocked") ~= 1 then
+                player:setCharVar("CrashingWavesBlocked", 1)
+                player:startEvent(10245)
+            end
+
+        elseif
             player:getCurrentMission(COP) == tpz.mission.id.cop.A_VESSEL_WITHOUT_A_CAPTAIN and
             player:getCharVar("PromathiaStatus") == 1
         then
