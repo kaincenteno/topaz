@@ -21,7 +21,6 @@ end
 
 function onZoneIn(player, prevZone)
     local cs = -1
-    local params = {0, 0, 0, 0, 0, 0, 0, 0}
 
     if
         player:getXPos() == 0 and
@@ -50,10 +49,6 @@ function onZoneIn(player, prevZone)
     elseif player:getCurrentMission(ROV) == tpz.mission.id.rov.SPIRITS_AWOKEN then
         cs = 51
 
-        if player:getCurrentMission(COP) >= tpz.mission.id.cop.THREE_PATHS then
-            params[2] = 1 -- Acknowledges the Player Character already knowing Prishe
-        end
-
     -- BORN OF HER NIGHTMARES
     elseif
         player:getCurrentMission(ACP) == tpz.mission.id.acp.BORN_OF_HER_NIGHTMARES and
@@ -62,7 +57,7 @@ function onZoneIn(player, prevZone)
         cs = 34
     end
 
-    return cs --,{params} need to pass a param for CS 51 to show extra dialog
+    return cs
 end
 
 function onRegionEnter(player, region)
