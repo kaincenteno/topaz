@@ -21,19 +21,48 @@ end
 
 function onZoneIn(player, prevZone)
     local cs = -1
+    local params = {0, 0, 0, 0, 0, 0, 0, 0}
 
-    if player:getXPos() == 0 and player:getYPos() == 0 and player:getZPos() == 0 then
+    if
+        player:getXPos() == 0 and
+        player:getYPos() == 0 and
+        player:getZPos() == 0
+    then
         player:setPos(460.022, -1.77, -103.442, 188)
     end
-    if player:getCurrentMission(ZILART) == tpz.mission.id.zilart.RETURN_TO_DELKFUTTS_TOWER and player:getCharVar("ZilartStatus") <= 1 then
+
+    -- RETURN TO DELKFUTTS TOWER
+    if
+        player:getCurrentMission(ZILART) == tpz.mission.id.zilart.RETURN_TO_DELKFUTTS_TOWER and
+        player:getCharVar("ZilartStatus") <= 1
+    then
         cs = 15
-    elseif ENABLE_COP == 1 and prevZone == tpz.zone.QUFIM_ISLAND and player:getCurrentMission(COP) < tpz.mission.id.cop.THE_RITES_OF_LIFE then
+
+    -- THE RITES OF LIFE
+    elseif
+        ENABLE_COP == 1 and
+        prevZone == tpz.zone.QUFIM_ISLAND and
+        player:getCurrentMission(COP) < tpz.mission.id.cop.THE_RITES_OF_LIFE
+    then
         cs = 22
-    elseif player:getCurrentMission(ACP) == tpz.mission.id.acp.BORN_OF_HER_NIGHTMARES and prevZone == tpz.zone.QUFIM_ISLAND then
+
+    -- SPIRITS AWOKEN
+    elseif player:getCurrentMission(ROV) == tpz.mission.id.rov.SPIRITS_AWOKEN then
+        cs = 51
+
+        if player:getCurrentMission(COP) >= tpz.mission.id.cop.THREE_PATHS then
+            params[2] = 1 -- Acknowledges the Player Character already knowing Prishe
+        end
+
+    -- BORN OF HER NIGHTMARES
+    elseif
+        player:getCurrentMission(ACP) == tpz.mission.id.acp.BORN_OF_HER_NIGHTMARES and
+        prevZone == tpz.zone.QUFIM_ISLAND
+    then
         cs = 34
     end
 
-    return cs
+    return cs --,{params} need to pass a param for CS 51 to show extra dialog
 end
 
 function onRegionEnter(player, region)
@@ -57,16 +86,23 @@ function onEventUpdate(player, csid, option)
 end
 
 function onEventFinish(player, csid, option)
+    if csid == 51 then print("option is: hoho "..option) end
     if csid == 15 then
         player:setCharVar("ZilartStatus", 2)
-    elseif csid == 4 and option == 1 then
+    elseif
+        csid == 4 and
+        option == 1 then
         if player:getCharVar("option") == 1 then
             player:setPos(-28, -48, 80, 111, 157)
         else
             player:setPos(-51, -48, -40, 246, 157)
         end
         player:setCharVar("option", 0)
-    elseif csid == 4 and (option == 0 or option >= 3) then
+    elseif
+        csid == 4 and
+        (option == 0 or
+        option >= 3)
+    then
         player:setCharVar("option", 0)
     elseif csid == 22 then
         player:startEvent(36)
@@ -83,5 +119,8 @@ function onEventFinish(player, csid, option)
         player:completeMission(COP, tpz.mission.id.cop.ANCIENT_FLAMES_BECKON)
         player:addMission(COP, tpz.mission.id.cop.THE_RITES_OF_LIFE)
         player:setCharVar("COP1", 1)
+    elseif csid == 51 then
+        player:completeMission(ROV, tpz.mission.id.rov.SPIRITS_AWOKEN)
+        player:addMission(ROV, tpz.mission.id.rov.CRASHING_WAVES)
     end
 end
