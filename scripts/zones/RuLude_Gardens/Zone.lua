@@ -8,6 +8,7 @@ require("scripts/globals/conquest")
 require("scripts/globals/missions")
 require("scripts/globals/quests")
 require("scripts/globals/rhapsodies")
+require("scripts/globals/npc_util")
 -----------------------------------
 
 function onInitialize(zone)
@@ -49,22 +50,37 @@ function onRegionEnter(player, region)
 
         -- CRASHING WAVES
         if player:getCurrentMission(ROV) == tpz.mission.id.rov.CRASHING_WAVES then
-            local tenzenAgent = 0
+            local metPrishe = 0
             local prisheIsSick = 0
+            local prisheIsHealthy = 0
+            local tenzenSword = 0
 
-            if player:getCharVar("TenzenAgent") == 1 then
-                tenzenAgent = 1
+            if player:hasCompletedMission(COP, tpz.mission.id.cop.DISTANT_BELIEFS) then
+                metPrishe = 1
+            end
+
             if player:getCurrentMission(COP) == tpz.mission.id.cop.DARKNESS_NAMED then
                 prisheIsSick = 1
             end
 
+            if player:hasCompletedMission(COP, tpz.mission.id.cop.DARKNESS_NAMED) then
+                prisheIsSick = 1
+                prisheIsHealthy = 1
+            end
+
+            -- Tenzen looks at sword. Unsure which completemission makes that happen, for now assigned to darkness named
+            if player:hasCompletedMission(COP, tpz.mission.id.cop.DARKNESS_NAMED) then
+                tenzenSword = 1
+            end
+
             if tpz.rhapsodies.charactersAvailable(player) then
-                player:startEvent(10244, tenzenAgent, prisheIsSick, 0, 0)
+                player:startEvent(10244, metPrishe, prisheIsSick, prisheIsHealthy, tenzenSword)
             elseif player:getCharVar("CrashingWavesBlocked") ~= 1 then
                 player:setCharVar("CrashingWavesBlocked", 1)
                 player:startEvent(10245)
             end
 
+        -- A VESSEL WITHOUT A CAPTAIN
         elseif
             player:getCurrentMission(COP) == tpz.mission.id.cop.A_VESSEL_WITHOUT_A_CAPTAIN and
             player:getCharVar("PromathiaStatus") == 1
@@ -166,5 +182,12 @@ function onEventFinish(player, csid, option)
     elseif csid == 143 then
         player:completeQuest(JEUNO, tpz.quest.id.jeuno.STORMS_OF_FATE)
         player:setCharVar('StormsOfFate', 0)
+
+    -- CRASHING WAVES
+    elseif csid == 10244 then
+        player:completeMission(ROV, tpz.mission.id.rov.CRASHING_WAVES)
+        player:addMission(ROV, tpz.mission.id.rov.CALL_TO_SERVE)
+        npcUtil.giveItem(player, 10114)
+        player:setCharVar("CrashingWavesBlocked", 0)
     end
 end
