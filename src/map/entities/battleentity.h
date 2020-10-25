@@ -463,6 +463,11 @@ struct health_t
     int32   modhp, modmp;       // модифицированные максимальные значения
 };
 
+struct battlehistory_t
+{
+    ATTACKTYPE  lastHitTaken_atkType;
+};
+
 typedef std::vector<apAction_t> ActionList_t;
 class CModifier;
 class CParty;
@@ -671,7 +676,8 @@ public:
     CParty*			PParty;					    // описание группы, в которой состоит сущность
     CBattleEntity*	PPet;					    // питомец сущности
     CBattleEntity*	PMaster;				    // владелец/хозяин сущности (распространяется на все боевые сущности)
-    CBattleEntity*  PLastAttacker;
+    CBattleEntity*	PLastAttacker;
+    battlehistory_t BattleHistory;              // Stores info related to most recent combat actions taken towards this entity.
     time_point      LastAttacked;
 
     std::unique_ptr<CStatusEffectContainer> StatusEffectContainer;
