@@ -20,6 +20,7 @@ zones[tpz.zone.ATTOHWA_CHASM] =
         CARRIED_OVER_POINTS     = 6999, -- You have carried over <number>  points.
         LOGIN_CAMPAIGN_UNDERWAY = 7000, -- The <month> ≺year≻ Login Campaign is currently underway!
         LOGIN_NUMBER            = 7001, -- In celebration of your most recent login no. <number>...
+        CONQUEST_BASE           = 7049, -- Tallying conquest results...
         MINING_IS_POSSIBLE_HERE = 7208, -- Mining is possible here if you have <item>.
         GASPONIA_POISON         = 7328, -- The poison of the Gasponia has begun to spread through your body.
         OCCASIONAL_LUMPS        = 7343, -- Occasionally lumps arise in the ground here, then settle down again. It seems that there is something beneath the earth.
