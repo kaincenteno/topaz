@@ -451,6 +451,118 @@ tpz.roe.records =
         reward = { item = { {4101,6} }, sparks = 300, xp = 500 },
     },
 
+    [1337] = { -- Bastok Rank 2-2
+        trigger = triggers.missionComplete,
+        reqs = { missionComplete = {BASTOK, tpz.mission.id.bastok.WADING_BEASTS} },
+        flags = set{"retro"},
+        reward = { item = { {4100,6} }, sparks = 300, xp = 500 },
+    },
+
+    [1338] = { -- Bastok Rank 2-3
+        trigger = triggers.missionComplete,
+        reqs = { missionComplete = {BASTOK, tpz.mission.id.bastok.THE_EMISSARY} },
+        flags = set{"retro"},
+        reward = { item = { {4101,6} }, sparks = 300, xp = 500 },
+    },
+
+    [1339] = { -- Bastok Rank 3-1
+        trigger = triggers.missionComplete,
+        reqs = { missionComplete = {BASTOK, tpz.mission.id.bastok.THE_FOUR_MUSKETEERS} },
+        flags = set{"retro"},
+        reward = { item = { {4100,6} }, sparks = 300, xp = 500 },
+    },
+
+    [1340] = { -- Bastok Rank 3-2
+        trigger = triggers.missionComplete,
+        reqs = { missionComplete = {BASTOK, tpz.mission.id.bastok.TO_THE_FORSAKEN_MINES} },
+        flags = set{"retro"},
+        reward = { item = { {4101,6} }, sparks = 300, xp = 500 },
+    },
+
+    [1341] = { -- Bastok Rank 3-3
+        trigger = triggers.missionComplete,
+        reqs = { missionComplete = {BASTOK, tpz.mission.id.bastok.JEUNO} },
+        flags = set{"retro"},
+        reward = { item = { {4100,8} }, sparks = 300, xp = 500 },
+    },
+
+    [1342] = { -- Bastok Rank 4
+        trigger = triggers.missionComplete,
+        reqs = { missionComplete = {BASTOK, tpz.mission.id.bastok.MAGICITE} },
+        flags = set{"retro"},
+        reward = { item = { {4101,8} }, sparks = 300, xp = 500 },
+    },
+
+    [1343] = { -- Bastok Rank 5-1
+        trigger = triggers.missionComplete,
+        reqs = { missionComplete = {BASTOK, tpz.mission.id.bastok.DARKNESS_RISING} },
+        flags = set{"retro"},
+        reward = { item = { {4100,8} }, sparks = 300, xp = 500 },
+    },
+
+    [1344] = { -- Bastok Rank 5-2
+        trigger = triggers.missionComplete,
+        reqs = { missionComplete = {BASTOK, tpz.mission.id.bastok.XARCABARD_LAND_OF_TRUTHS} },
+        flags = set{"retro"},
+        reward = { item = { {4101,8} }, sparks = 300, xp = 500 },
+    },
+
+    [1345] = { -- Bastok Rank 6-1
+        trigger = triggers.missionComplete,
+        reqs = { missionComplete = {BASTOK, tpz.mission.id.bastok.RETURN_OF_THE_TALEKEEPER} },
+        flags = set{"retro"},
+        reward = { item = { {4100,10} }, sparks = 300, xp = 500 },
+    },
+
+    [1346] = { -- Bastok Rank 6-2
+        trigger = triggers.missionComplete,
+        reqs = { missionComplete = {BASTOK, tpz.mission.id.bastok.THE_PIRATE_S_COVE} },
+        flags = set{"retro"},
+        reward = { item = { {4101,10} }, sparks = 300, xp = 500 },
+    },
+
+    [1347] = { -- Bastok Rank 7-1
+        trigger = triggers.missionComplete,
+        reqs = { missionComplete = {BASTOK, tpz.mission.id.bastok.THE_FINAL_IMAGE} },
+        flags = set{"retro"},
+        reward = { item = { {4100,10} }, sparks = 300, xp = 500 },
+    },
+
+    [1348] = { -- Bastok Rank 7-2
+        trigger = triggers.missionComplete,
+        reqs = { missionComplete = {BASTOK, tpz.mission.id.bastok.ON_MY_WAY} },
+        flags = set{"retro"},
+        reward = { item = { {4101,10} }, sparks = 300, xp = 500 },
+    },
+
+    [1349] = { -- Bastok Rank 8-1
+        trigger = triggers.missionComplete,
+        reqs = { missionComplete = {BASTOK, tpz.mission.id.bastok.THE_CHAINS_THAT_BIND_US} },
+        flags = set{"retro"},
+        reward = { item = { {4100,12} }, sparks = 300, xp = 500 },
+    },
+
+    [1350] = { -- Bastok Rank 8-2
+        trigger = triggers.missionComplete,
+        reqs = { missionComplete = {BASTOK, tpz.mission.id.bastok.ENTER_THE_TALEKEEPER} },
+        flags = set{"retro"},
+        reward = { item = { {4101,12} }, sparks = 300, xp = 500 },
+    },
+
+    [1351] = { -- Bastok Rank 9-1
+        trigger = triggers.missionComplete,
+        reqs = { missionComplete = {BASTOK, tpz.mission.id.bastok.THE_SALT_OF_THE_EARTH} },
+        flags = set{"retro"},
+        reward = { item = { {4100,12} }, sparks = 300, xp = 500 },
+    },
+
+    [1352] = { -- Bastok Rank 9-2
+        trigger = triggers.missionComplete,
+        reqs = { missionComplete = {BASTOK, tpz.mission.id.bastok.WHERE_TWO_PATHS_CONVERGE} },
+        flags = set{"retro"},
+        reward = { item = { {4101,12} }, sparks = 300, xp = 500 },
+    },
+
   --------------------------------------------
   -- Combat (Wide Area) -> Combat (General) --
   --------------------------------------------
