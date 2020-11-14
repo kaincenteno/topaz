@@ -276,6 +276,150 @@ tpz.roe.records =
     },
 
   ----------------------------------------
+  -- Tutorial -> Missions (San d'Oria)  --
+  ----------------------------------------
+
+    [1313] = { -- San d'Oria Rank 1-1
+        trigger = triggers.missionComplete,
+        reqs = { missionComplete = {SANDORIA, tpz.mission.id.sandoria.SMASH_THE_ORCISH_SCOUTS} },
+        flags = set{"retro"},
+        reward = { item = { {4096,6} }, sparks = 300, xp = 500 },
+    },
+
+    [1314] = { -- San d'Oria Rank 1-2
+        trigger = triggers.missionComplete,
+        reqs = { missionComplete = {SANDORIA, tpz.mission.id.sandoria.BAT_HUNT} },
+        flags = set{"retro"},
+        reward = { item = { {4097,6} }, sparks = 300, xp = 500 },
+    },
+
+    [1315] = { -- San d'Oria Rank 1-3
+        trigger = triggers.missionComplete,
+        reqs = { missionComplete = {SANDORIA, tpz.mission.id.sandoria.SAVE_THE_CHILDREN} },
+        flags = set{"retro"},
+        reward = { item = { {4096,6} }, sparks = 300, xp = 500 },
+    },
+
+    [1316] = { -- San d'Oria Rank 2-1
+        trigger = triggers.missionComplete,
+        reqs = { missionComplete = {SANDORIA, tpz.mission.id.sandoria.THE_RESCUE_DRILL} },
+        flags = set{"retro"},
+        reward = { item = { {4097,6} }, sparks = 300, xp = 500 },
+    },
+
+    [1317] = { -- San d'Oria Rank 2-2
+        trigger = triggers.missionComplete,
+        reqs = { missionComplete = {SANDORIA, tpz.mission.id.sandoria.THE_DAVOI_REPORT} },
+        flags = set{"retro"},
+        reward = { item = { {4096,6} }, sparks = 300, xp = 500 },
+    },
+
+    [1318] = { -- San d'Oria Rank 2-3
+        trigger = triggers.missionComplete,
+        reqs = { missionComplete = {SANDORIA, tpz.mission.id.sandoria.JOURNEY_ABROAD} },
+        flags = set{"retro"},
+        reward = { item = { {4097,6} }, sparks = 300, xp = 500 },
+    },
+
+    [1319] = { -- San d'Oria Rank 3-1
+        trigger = triggers.missionComplete,
+        reqs = { missionComplete = {SANDORIA, tpz.mission.id.sandoria.INFILTRATE_DAVOI} },
+        flags = set{"retro"},
+        reward = { item = { {4096,6} }, sparks = 300, xp = 500 },
+    },
+
+    [1320] = { -- San d'Oria Rank 3-2
+        trigger = triggers.missionComplete,
+        reqs = { missionComplete = {SANDORIA, tpz.mission.id.sandoria.THE_CRYSTAL_SPRING} },
+        flags = set{"retro"},
+        reward = { item = { {4097,6} }, sparks = 300, xp = 500 },
+    },
+
+    [1321] = { -- San d'Oria Rank 3-3
+        trigger = triggers.missionComplete,
+        reqs = { missionComplete = {SANDORIA, tpz.mission.id.sandoria.APPOINTMENT_TO_JEUNO} },
+        flags = set{"retro"},
+        reward = { item = { {4096,8} }, sparks = 300, xp = 500 },
+    },
+
+    [1322] = { -- San d'Oria Rank 4
+        trigger = triggers.missionComplete,
+        reqs = { missionComplete = {SANDORIA, tpz.mission.id.sandoria.MAGICITE} },
+        flags = set{"retro"},
+        reward = { item = { {4097,8} }, sparks = 300, xp = 500 },
+    },
+
+    [1323] = { -- San d'Oria Rank 5-1
+        trigger = triggers.missionComplete,
+        reqs = { missionComplete = {SANDORIA, tpz.mission.id.sandoria.THE_RUINS_OF_FEI_YIN} },
+        flags = set{"retro"},
+        reward = { item = { {4096,8} }, sparks = 300, xp = 500 },
+    },
+
+    [1324] = { -- San d'Oria Rank 5-2
+        trigger = triggers.missionComplete,
+        reqs = { missionComplete = {SANDORIA, tpz.mission.id.sandoria.THE_SHADOW_LORD} },
+        flags = set{"retro"},
+        reward = { item = { {4097,8}, sparks = 300, xp = 500 },
+    },
+
+    [1325] = { -- San d'Oria Rank 6-1
+        trigger = triggers.missionComplete,
+        reqs = { missionComplete = {SANDORIA, tpz.mission.id.sandoria.LEAUTE_S_LAST_WISHES} },
+        flags = set{"retro"},
+        reward = { item = { {4096,10} }, sparks = 300, xp = 500 },
+    },
+
+    [1326] = { -- San d'Oria Rank 6-2
+        trigger = triggers.missionComplete,
+        reqs = { missionComplete = {SANDORIA, tpz.mission.id.sandoria.RANPERRE_S_FINAL_REST} },
+        flags = set{"retro"},
+        reward = { item = { {4097,10} }, sparks = 300, xp = 500 },
+    },
+
+    [1327] = { -- San d'Oria Rank 7-1
+        trigger = triggers.missionComplete,
+        reqs = { missionComplete = {SANDORIA, tpz.mission.id.sandoria.PRESTIGE_OF_THE_PAPSQUE} },
+        flags = set{"retro"},
+        reward = { item = { {4096,10} }, sparks = 300, xp = 500 },
+    },
+
+    [1328] = { -- San d'Oria Rank 7-2
+        trigger = triggers.missionComplete,
+        reqs = { missionComplete = {SANDORIA, tpz.mission.id.sandoria.THE_SECRET_WEAPON} },
+        flags = set{"retro"},
+        reward = { item = { {4097,10} }, sparks = 300, xp = 500 },
+    },
+
+    [1329] = { -- San d'Oria Rank 8-1
+        trigger = triggers.missionComplete,
+        reqs = { missionComplete = {SANDORIA, tpz.mission.id.sandoria.COMING_OF_AGE} },
+        flags = set{"retro"},
+        reward = { item = { {4096,12} }, sparks = 300, xp = 500 },
+    },
+
+    [1330] = { -- San d'Oria Rank 8-2
+        trigger = triggers.missionComplete,
+        reqs = { missionComplete = {SANDORIA, tpz.mission.id.sandoria.LIGHTBRINGER} },
+        flags = set{"retro"},
+        reward = { item = { {4097,12} }, sparks = 300, xp = 500 },
+    },
+
+    [1331] = { -- San d'Oria Rank 9-1
+        trigger = triggers.missionComplete,
+        reqs = { missionComplete = {SANDORIA, tpz.mission.id.sandoria.BREAKING_BARRIERS} },
+        flags = set{"retro"},
+        reward = { item = { {4096,12} }, sparks = 300, xp = 500 },
+    },
+
+    [1332] = { -- San d'Oria Rank 9-2
+        trigger = triggers.missionComplete,
+        reqs = { missionComplete = {SANDORIA, tpz.mission.id.sandoria.THE_HEIR_TO_THE_LIGHT} },
+        flags = set{"retro"},
+        reward = { item = { {4097,12} }, sparks = 300, xp = 500 },
+    },
+
+  ----------------------------------------
   -- Tutorial -> Missions (Bastok)      --
   ----------------------------------------
 
@@ -283,28 +427,28 @@ tpz.roe.records =
         trigger = triggers.missionComplete,
         reqs = { missionComplete = {BASTOK, tpz.mission.id.bastok.THE_ZERUHN_REPORT} },
         flags = set{"retro"},
-        reward = { sparks = 300, xp = 500 },
+        reward = { item = { {4100,6} }, sparks = 300, xp = 500 },
     },
 
     [1334] = { -- Bastok Rank 1-2
         trigger = triggers.missionComplete,
         reqs = { missionComplete = {BASTOK, tpz.mission.id.bastok.A_GEOLOGICAL_SURVEY} },
         flags = set{"retro"},
-        reward = { sparks = 300, xp = 500 },
+        reward = { item = { {4101,6} }, sparks = 300, xp = 500 },
     },
 
     [1335] = { -- Bastok Rank 1-3
         trigger = triggers.missionComplete,
         reqs = { missionComplete = {BASTOK, tpz.mission.id.bastok.FETICHISM} },
         flags = set{"retro"},
-        reward = { sparks = 300, xp = 500 },
+        reward = { item = { {4100,6} }, sparks = 300, xp = 500 },
     },
 
     [1336] = { -- Bastok Rank 2-1
         trigger = triggers.missionComplete,
         reqs = { missionComplete = {BASTOK, tpz.mission.id.bastok.THE_CRYSTAL_LINE} },
         flags = set{"retro"},
-        reward = { sparks = 300, xp = 500 },
+        reward = { item = { {4101,6} }, sparks = 300, xp = 500 },
     },
 
   --------------------------------------------
