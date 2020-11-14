@@ -563,6 +563,156 @@ tpz.roe.records =
         reward = { item = { {4101,12} }, sparks = 300, xp = 500 },
     },
 
+  ----------------------------------------
+  -- Tutorial -> Missions (Windurst)    --
+  ----------------------------------------
+
+  [1353] = { -- Windurst Rank 1-1
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {WINDURST, tpz.mission.id.windurst.THE_HORUTOTO_RUINS_EXPERIMENT} },
+      flags = set{"retro"},
+      reward = { item = { {4098,6} }, sparks = 300, xp = 500 },
+  },
+
+  [1354] = { -- Windurst Rank 1-2
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {WINDURST, tpz.mission.id.windurst.THE_HEART_OF_THE_MATTER} },
+      flags = set{"retro"},
+      reward = { item = { {4099,6} }, sparks = 300, xp = 500 },
+  },
+
+  [1355] = { -- Windurst Rank 1-3
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {WINDURST, tpz.mission.id.windurst.THE_PRICE_OF_PEACE} },
+      flags = set{"retro"},
+      reward = { item = { {4098,6} }, sparks = 300, xp = 500 },
+  },
+
+  [1356] = { -- Windurst Rank 2-1
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {WINDURST, tpz.mission.id.windurst.LOST_FOR_WORDS} },
+      flags = set{"retro"},
+      reward = { item = { {4099,6} }, sparks = 300, xp = 500 },
+  },
+
+  [1357] = { -- Windurst Rank 2-2
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {WINDURST, tpz.mission.id.windurst.A_TESTING_TIME} },
+      flags = set{"retro"},
+      reward = { item = { {4098,6} }, sparks = 300, xp = 500 },
+  },
+
+  [1358] = { -- Windurst Rank 2-3
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {WINDURST, tpz.mission.id.windurst.THE_THREE_KINGDOMS} },
+      flags = set{"retro"},
+      reward = { item = { {4099,6} }, sparks = 300, xp = 500 },
+  },
+
+  [1359] = { -- Windurst Rank 3-1
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {WINDURST, tpz.mission.id.windurst.TO_EACH_HIS_OWN_RIGHT} },
+      flags = set{"retro"},
+      reward = { item = { {4098,6} }, sparks = 300, xp = 500 },
+  },
+
+  [1360] = { -- Windurst Rank 3-2
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {WINDURST, tpz.mission.id.windurst.WRITTEN_IN_THE_STARS} },
+      flags = set{"retro"},
+      reward = { item = { {4099,6} }, sparks = 300, xp = 500 },
+  },
+
+  [1361] = { -- Windurst Rank 3-3
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {WINDURST, tpz.mission.id.windurst.A_NEW_JOURNEY} },
+      flags = set{"retro"},
+      reward = { item = { {4098,8} }, sparks = 300, xp = 500 },
+  },
+
+  [1362] = { -- Windurst Rank 4
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {WINDURST, tpz.mission.id.windurst.MAGICITE} },
+      flags = set{"retro"},
+      reward = { item = { {4099,8} }, sparks = 300, xp = 500 },
+  },
+
+  [1363] = { -- Windurst Rank 5-1
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {WINDURST, tpz.mission.id.windurst.THE_FINAL_SEAL} },
+      flags = set{"retro"},
+      reward = { item = { {4098,8} }, sparks = 300, xp = 500 },
+  },
+
+  [1364] = { -- Windurst Rank 5-2
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {WINDURST, tpz.mission.id.windurst.THE_SHADOW_AWAITS} },
+      flags = set{"retro"},
+      reward = { item = { {4099,8} }, sparks = 300, xp = 500 },
+  },
+
+  [1365] = { -- Windurst Rank 6-1
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {WINDURST, tpz.mission.id.windurst.FULL_MOON_FOUNTAIN} },
+      flags = set{"retro"},
+      reward = { item = { {4098,10} }, sparks = 300, xp = 500 },
+  },
+
+  [1366] = { -- Windurst Rank 6-2
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {WINDURST, tpz.mission.id.windurst.SAINTLY_INVITATION} },
+      flags = set{"retro"},
+      reward = { item = { {4099,10} }, sparks = 300, xp = 500 },
+  },
+
+  [1367] = { -- Windurst Rank 7-1
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {WINDURST, tpz.mission.id.windurst.THE_SIXTH_MINISTRY} },
+      flags = set{"retro"},
+      reward = { item = { {4098,10} }, sparks = 300, xp = 500 },
+  },
+
+  [1368] = { -- Windurst Rank 7-2
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {WINDURST, tpz.mission.id.windurst.AWAKENING_OF_THE_GODS} },
+      flags = set{"retro"},
+      reward = { item = { {4099,10} }, sparks = 300, xp = 500 },
+  },
+
+  [1369] = { -- Windurst Rank 8-1
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {WINDURST, tpz.mission.id.windurst.VAIN} },
+      flags = set{"retro"},
+      reward = { item = { {4098,12} }, sparks = 300, xp = 500 },
+  },
+
+  [1370] = { -- Windurst Rank 8-2
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {WINDURST, tpz.mission.id.windurst.THE_JESTER_WHO_D_BE_KING} },
+      flags = set{"retro"},
+      reward = { item = { {4099,12} }, sparks = 300, xp = 500 },
+  },
+
+  [1371] = { -- Windurst Rank 9-1
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {WINDURST, tpz.mission.id.windurst.DOLL_OF_THE_DEAD} },
+      flags = set{"retro"},
+      reward = { item = { {4098,12} }, sparks = 300, xp = 500 },
+  },
+
+  [1372] = { -- Windurst Rank 9-2
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {WINDURST, tpz.mission.id.windurst.MOON_READING} },
+      flags = set{"retro"},
+      reward = { item = { {4099,12} }, sparks = 300, xp = 500 },
+  },
+
+  ----------------------------------------
+  -- Tutorial -> Missions (Zilart)      --
+  ----------------------------------------
+
+  -- 1377 Zilart Start
+
   --------------------------------------------
   -- Combat (Wide Area) -> Combat (General) --
   --------------------------------------------
