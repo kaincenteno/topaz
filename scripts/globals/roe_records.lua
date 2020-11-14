@@ -360,7 +360,7 @@ tpz.roe.records =
         trigger = triggers.missionComplete,
         reqs = { missionComplete = {SANDORIA, tpz.mission.id.sandoria.THE_SHADOW_LORD} },
         flags = set{"retro"},
-        reward = { item = { {4097,8}, sparks = 300, xp = 500 },
+        reward = { item = { {4097,8} }, sparks = 300, xp = 500 },
     },
 
     [1325] = { -- San d'Oria Rank 6-1
