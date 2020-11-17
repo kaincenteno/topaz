@@ -612,6 +612,8 @@ tpz.roe.records =
   },
 
   [1358] = { -- Windurst Rank 2-3 +
+             -- Note: For testing purposes, this mission required changes to Kupipi.lua
+             --       missionStatus for THE_THREE_KINGDOMS should == 1, since it was accepted before onTrigger
       trigger = triggers.missionComplete,
       reqs = { missionComplete = {WINDURST, tpz.mission.id.windurst.THE_THREE_KINGDOMS} },
       flags = set{"retro"},
