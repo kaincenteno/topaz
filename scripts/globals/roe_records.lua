@@ -37,6 +37,8 @@ local defaults = {
 
 -- All implemented records must have their entries in this table.
 -- Records not in this table can't be taken.
+--
+-- Note: '+' at the end of comments indicates tested item
 tpz.roe.records =
 {
 
@@ -44,11 +46,11 @@ tpz.roe.records =
   -- Tutorial -> Basics                 --
   ----------------------------------------
 
-    [   1] = { -- First Step Forward
+    [   1] = { -- First Step Forward +
         reward =  { item = { {4376,6} }, keyItem = tpz.ki.MEMORANDOLL, sparks = 100, xp = 300 }
     },
 
-    [   2] = { -- Vanquish 1 Enemy
+    [   2] = { -- Vanquish 1 Enemy +
         trigger = triggers.mobKill,
         reward =  { sparks = 100, xp = 500}
     },
@@ -119,6 +121,13 @@ tpz.roe.records =
   ----------------------------------------
   -- Tutorial -> Quests 1               --
   ----------------------------------------
+
+    [ 500] = { -- Mog House Exit: San d'Oria
+        trigger = triggers.questComplete,
+        reqs = { questComplete = {SANDORIA, tpz.quest.id.sandoria.GROWING_FLOWERS} },
+        flags = set{"retro"},
+        reward = { sparks = 100, xp = 300 },
+    },
 
     [ 501] = { -- Mog House Exit: Bastok
         trigger = triggers.questComplete,
@@ -275,9 +284,9 @@ tpz.roe.records =
         reward = { sparks = 100, xp = 300 },
     },
 
-  ----------------------------------------
-  -- Tutorial -> Missions (San d'Oria)  --
-  ----------------------------------------
+  ---------------------------------------
+  -- Tutorial -> Missions (San d'Oria) --
+  ---------------------------------------
 
     [1313] = { -- San d'Oria Rank 1-1
         trigger = triggers.missionComplete,
@@ -419,9 +428,9 @@ tpz.roe.records =
         reward = { item = { {4097,12} }, sparks = 300, xp = 500 },
     },
 
-  ----------------------------------------
-  -- Tutorial -> Missions (Bastok)      --
-  ----------------------------------------
+  -----------------------------------
+  -- Tutorial -> Missions (Bastok) --
+  -----------------------------------
 
     [1333] = { -- Bastok Rank 1-1
         trigger = triggers.missionComplete,
@@ -563,88 +572,88 @@ tpz.roe.records =
         reward = { item = { {4101,12} }, sparks = 300, xp = 500 },
     },
 
-  ----------------------------------------
-  -- Tutorial -> Missions (Windurst)    --
-  ----------------------------------------
+  -------------------------------------
+  -- Tutorial -> Missions (Windurst) --
+  -------------------------------------
 
-  [1353] = { -- Windurst Rank 1-1
+  [1353] = { -- Windurst Rank 1-1 +
       trigger = triggers.missionComplete,
       reqs = { missionComplete = {WINDURST, tpz.mission.id.windurst.THE_HORUTOTO_RUINS_EXPERIMENT} },
       flags = set{"retro"},
       reward = { item = { {4098,6} }, sparks = 300, xp = 500 },
   },
 
-  [1354] = { -- Windurst Rank 1-2
+  [1354] = { -- Windurst Rank 1-2 +
       trigger = triggers.missionComplete,
       reqs = { missionComplete = {WINDURST, tpz.mission.id.windurst.THE_HEART_OF_THE_MATTER} },
       flags = set{"retro"},
       reward = { item = { {4099,6} }, sparks = 300, xp = 500 },
   },
 
-  [1355] = { -- Windurst Rank 1-3
+  [1355] = { -- Windurst Rank 1-3 +
       trigger = triggers.missionComplete,
       reqs = { missionComplete = {WINDURST, tpz.mission.id.windurst.THE_PRICE_OF_PEACE} },
       flags = set{"retro"},
       reward = { item = { {4098,6} }, sparks = 300, xp = 500 },
   },
 
-  [1356] = { -- Windurst Rank 2-1
+  [1356] = { -- Windurst Rank 2-1 +
       trigger = triggers.missionComplete,
       reqs = { missionComplete = {WINDURST, tpz.mission.id.windurst.LOST_FOR_WORDS} },
       flags = set{"retro"},
       reward = { item = { {4099,6} }, sparks = 300, xp = 500 },
   },
 
-  [1357] = { -- Windurst Rank 2-2
+  [1357] = { -- Windurst Rank 2-2 +
       trigger = triggers.missionComplete,
       reqs = { missionComplete = {WINDURST, tpz.mission.id.windurst.A_TESTING_TIME} },
       flags = set{"retro"},
       reward = { item = { {4098,6} }, sparks = 300, xp = 500 },
   },
 
-  [1358] = { -- Windurst Rank 2-3
+  [1358] = { -- Windurst Rank 2-3 +
       trigger = triggers.missionComplete,
       reqs = { missionComplete = {WINDURST, tpz.mission.id.windurst.THE_THREE_KINGDOMS} },
       flags = set{"retro"},
       reward = { item = { {4099,6} }, sparks = 300, xp = 500 },
   },
 
-  [1359] = { -- Windurst Rank 3-1
+  [1359] = { -- Windurst Rank 3-1 +
       trigger = triggers.missionComplete,
       reqs = { missionComplete = {WINDURST, tpz.mission.id.windurst.TO_EACH_HIS_OWN_RIGHT} },
       flags = set{"retro"},
       reward = { item = { {4098,6} }, sparks = 300, xp = 500 },
   },
 
-  [1360] = { -- Windurst Rank 3-2
+  [1360] = { -- Windurst Rank 3-2 +
       trigger = triggers.missionComplete,
       reqs = { missionComplete = {WINDURST, tpz.mission.id.windurst.WRITTEN_IN_THE_STARS} },
       flags = set{"retro"},
       reward = { item = { {4099,6} }, sparks = 300, xp = 500 },
   },
 
-  [1361] = { -- Windurst Rank 3-3
+  [1361] = { -- Windurst Rank 3-3 +
       trigger = triggers.missionComplete,
       reqs = { missionComplete = {WINDURST, tpz.mission.id.windurst.A_NEW_JOURNEY} },
       flags = set{"retro"},
       reward = { item = { {4098,8} }, sparks = 300, xp = 500 },
   },
 
-  [1362] = { -- Windurst Rank 4
+  [1362] = { -- Windurst Rank 4 +
       trigger = triggers.missionComplete,
       reqs = { missionComplete = {WINDURST, tpz.mission.id.windurst.MAGICITE} },
       flags = set{"retro"},
       reward = { item = { {4099,8} }, sparks = 300, xp = 500 },
   },
 
-  [1363] = { -- Windurst Rank 5-1
+  [1363] = { -- Windurst Rank 5-1 +
       trigger = triggers.missionComplete,
       reqs = { missionComplete = {WINDURST, tpz.mission.id.windurst.THE_FINAL_SEAL} },
       flags = set{"retro"},
       reward = { item = { {4098,8} }, sparks = 300, xp = 500 },
   },
 
-  [1364] = { -- Windurst Rank 5-2
+  [1364] = { -- Windurst Rank 5-2 +
       trigger = triggers.missionComplete,
       reqs = { missionComplete = {WINDURST, tpz.mission.id.windurst.THE_SHADOW_AWAITS} },
       flags = set{"retro"},
@@ -707,11 +716,87 @@ tpz.roe.records =
       reward = { item = { {4099,12} }, sparks = 300, xp = 500 },
   },
 
-  ----------------------------------------
-  -- Tutorial -> Missions (Zilart)      --
-  ----------------------------------------
+  ----------------------------------------------------
+  -- Tutorial -> Missions (Rhapsodies of Vana'diel) --
+  ----------------------------------------------------
 
-  -- 1377 Zilart Start
+  [1373] = { -- Rhapsodies of Vana'diel 1-1 +
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {ROV, tpz.mission.id.rov.FLAMES_OF_PRAYER} },
+      flags = set{"retro"},
+      reward = { item = { {8711,2} }, sparks = 300, xp = 500 },
+  },
+
+  [1374] = { -- Rhapsodies of Vana'diel 1-2
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {ROV, tpz.mission.id.rov.A_LAND_AFTER_TIME} },
+      flags = set{"retro"},
+      reward = { item = { {8711,2} }, sparks = 300, xp = 500 },
+  },
+
+  -----------------------------------
+  -- Tutorial -> Missions (Zilart) --
+  -----------------------------------
+
+  [1377] = { -- Zilart Mission 1 +
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {ZILART, tpz.mission.id.zilart.THE_NEW_FRONTIER} },
+      flags = set{"retro"},
+      reward = { sparks = 300, xp = 500 },
+  },
+
+  [1378] = { -- Zilart Mission 2 +
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {ZILART, tpz.mission.id.zilart.WELCOME_TNORG} },
+      flags = set{"retro"},
+      reward = { sparks = 300, xp = 500 },
+  },
+
+  [1379] = { -- Zilart Mission 3 +
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {ZILART, tpz.mission.id.zilart.KAZAMS_CHIEFTAINESS} },
+      flags = set{"retro"},
+      reward = { sparks = 300, xp = 500 },
+  },
+
+  [1380] = { -- Zilart Mission 4 +
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {ZILART, tpz.mission.id.zilart.THE_TEMPLE_OF_UGGALEPIH} },
+      flags = set{"retro"},
+      reward = { sparks = 300, xp = 500 },
+  },
+
+  [1381] = { -- Zilart Mission 5
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {ZILART, tpz.mission.id.zilart.HEADSTONE_PILGRIMAGE} },
+      flags = set{"retro"},
+      reward = { sparks = 300, xp = 500 },
+  },
+
+  ------------------------------------------------
+  -- Tutorial -> Missions (Chains of Promathia) --
+  ------------------------------------------------
+
+  [1393] = { -- Chains of Promathia Chapter 1 +
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {COP, tpz.mission.id.cop.THE_MOTHERCRYSTALS} },
+      flags = set{"retro"},
+      reward = { sparks = 300, xp = 500 },
+  },
+
+  [1394] = { -- Chains of Promathia Chapter 2
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {COP, tpz.mission.id.cop.ANCIENT_VOWS} },
+      flags = set{"retro"},
+      reward = { sparks = 300, xp = 500 },
+  },
+
+  [1395] = { -- Chains of Promathia Chapter 3
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {COP, tpz.mission.id.cop.DARKNESS_NAMED} },
+      flags = set{"retro"},
+      reward = { sparks = 300, xp = 500 },
+  },
 
   --------------------------------------------
   -- Combat (Wide Area) -> Combat (General) --
