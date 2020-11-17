@@ -727,9 +727,23 @@ tpz.roe.records =
       reward = { item = { {8711,2} }, sparks = 300, xp = 500 },
   },
 
-  [1374] = { -- Rhapsodies of Vana'diel 1-2
+  [1374] = { -- Rhapsodies of Vana'diel 1-2 +
       trigger = triggers.missionComplete,
       reqs = { missionComplete = {ROV, tpz.mission.id.rov.A_LAND_AFTER_TIME} },
+      flags = set{"retro"},
+      reward = { item = { {8711,2} }, sparks = 300, xp = 500 },
+  },
+
+  [1375] = { -- Rhapsodies of Vana'diel 1-3 +
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {ROV, tpz.mission.id.rov.VOLTO_OSCURO} },
+      flags = set{"retro"},
+      reward = { item = { {8711,2} }, sparks = 300, xp = 500 },
+  },
+
+  [1416] = { -- Rhapsodies of Vana'diel 2-1
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {ROV, tpz.mission.id.rov.CRASHING_WAVES} },
       flags = set{"retro"},
       reward = { item = { {8711,2} }, sparks = 300, xp = 500 },
   },
@@ -784,7 +798,7 @@ tpz.roe.records =
       reward = { sparks = 300, xp = 500 },
   },
 
-  [1394] = { -- Chains of Promathia Chapter 2
+  [1394] = { -- Chains of Promathia Chapter 2 +
       trigger = triggers.missionComplete,
       reqs = { missionComplete = {COP, tpz.mission.id.cop.ANCIENT_VOWS} },
       flags = set{"retro"},
@@ -797,6 +811,12 @@ tpz.roe.records =
       flags = set{"retro"},
       reward = { sparks = 300, xp = 500 },
   },
+
+  ----------------------------------------------------
+  -- Tutorial -> Missions (Treasures of Aht Urhgan) --
+  ----------------------------------------------------
+
+-- start 1410
 
   --------------------------------------------
   -- Combat (Wide Area) -> Combat (General) --
