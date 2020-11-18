@@ -37,8 +37,6 @@ local defaults = {
 
 -- All implemented records must have their entries in this table.
 -- Records not in this table can't be taken.
---
--- Note: '+' at the end of comments indicates tested item
 tpz.roe.records =
 {
 
@@ -140,7 +138,7 @@ tpz.roe.records =
   -- Tutorial -> Level Cap Increase     --
   ----------------------------------------
 
-    [ 705] = { -- Level Cap Increase: 55
+    [ 705] = { -- Level Cap Increase: 55 +
         trigger = triggers.questComplete,
         reqs = { questComplete = {JEUNO, tpz.quest.id.jeuno.IN_DEFIANT_CHALLENGE} },
         flags = set{"retro"},
@@ -743,7 +741,7 @@ tpz.roe.records =
       reward = { item = { {8711,2} }, sparks = 300, xp = 500 },
   },
 
-  [1416] = { -- Rhapsodies of Vana'diel 2-1
+  [1416] = { -- Rhapsodies of Vana'diel 2-1 (Not Implemented in Release)
       trigger = triggers.missionComplete,
       reqs = { missionComplete = {ROV, tpz.mission.id.rov.CRASHING_WAVES} },
       flags = set{"retro"},
@@ -782,9 +780,86 @@ tpz.roe.records =
       reward = { sparks = 300, xp = 500 },
   },
 
-  [1381] = { -- Zilart Mission 5
+  [1381] = { -- Zilart Mission 5 +
       trigger = triggers.missionComplete,
       reqs = { missionComplete = {ZILART, tpz.mission.id.zilart.HEADSTONE_PILGRIMAGE} },
+      flags = set{"retro"},
+      reward = { sparks = 300, xp = 500 },
+  },
+
+  [1382] = { -- Zilart Mission 6 +
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {ZILART, tpz.mission.id.zilart.THROUGH_THE_QUICKSAND_CAVES} },
+      flags = set{"retro"},
+      reward = { sparks = 300, xp = 500 },
+  },
+
+  [1383] = { -- Zilart Mission 7 +
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {ZILART, tpz.mission.id.zilart.THE_CHAMBER_OF_ORACLES} },
+      flags = set{"retro"},
+      reward = { sparks = 300, xp = 500 },
+  },
+
+  [1384] = { -- Zilart Mission 8 +
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {ZILART, tpz.mission.id.zilart.RETURN_TO_DELKFUTTS_TOWER} },
+      flags = set{"retro"},
+      reward = { sparks = 300, xp = 500 },
+  },
+
+  [1385] = { -- Zilart Mission 9 +
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {ZILART, tpz.mission.id.zilart.ROMAEVE} },
+      flags = set{"retro"},
+      reward = { sparks = 300, xp = 500 },
+  },
+
+  [1386] = { -- Zilart Mission 10 +
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {ZILART, tpz.mission.id.zilart.THE_TEMPLE_OF_DESOLATION} },
+      flags = set{"retro"},
+      reward = { sparks = 300, xp = 500 },
+  },
+
+  [1387] = { -- Zilart Mission 11 +
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {ZILART, tpz.mission.id.zilart.THE_HALL_OF_THE_GODS} },
+      flags = set{"retro"},
+      reward = { sparks = 300, xp = 500 },
+  },
+
+  [1388] = { -- Zilart Mission 12 +
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {ZILART, tpz.mission.id.zilart.THE_MITHRA_AND_THE_CRYSTAL} },
+      flags = set{"retro"},
+      reward = { sparks = 300, xp = 500 },
+  },
+
+  [1389] = { -- Zilart Mission 13 +
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {ZILART, tpz.mission.id.zilart.THE_GATE_OF_THE_GODS} },
+      flags = set{"retro"},
+      reward = { sparks = 300, xp = 500 },
+  },
+
+  [1390] = { -- Zilart Mission 14 +
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {ZILART, tpz.mission.id.zilart.ARK_ANGELS} },
+      flags = set{"retro"},
+      reward = { sparks = 300, xp = 500 },
+  },
+
+  [1391] = { -- Zilart Mission 15 +
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {ZILART, tpz.mission.id.zilart.THE_SEALED_SHRINE} },
+      flags = set{"retro"},
+      reward = { sparks = 300, xp = 500 },
+  },
+
+  [1392] = { -- Zilart Mission 16 +
+      trigger = triggers.missionComplete,
+      reqs = { missionComplete = {ZILART, tpz.mission.id.zilart.THE_CELESTIAL_NEXUS} },
       flags = set{"retro"},
       reward = { sparks = 300, xp = 500 },
   },
@@ -2907,7 +2982,7 @@ tpz.roe.records =
   -- Achievements - Job Levels I        --
   ----------------------------------------
 
-    [1200] = { -- Level 30 Warrior
+    [1200] = { -- Level 30 Warrior +
         trigger = triggers.levelUp,
         reqs = { jobLvl = { tpz.job.WAR, 30 } },
         flags = set{"retro"},
