@@ -190,8 +190,8 @@ function onGameIn(player, firstLogin, zoning)
     player:setLocalVar("ZoneInTime", os.time())
 
     -- Login Campaign rewards points once daily
-    tpz.events.loginCampaign.onGameIn(player)
-    print("WTF dood")
+    player:timer(2000, function (player) tpz.events.loginCampaign.onGameIn(player) end) -- Hacky recommendation by Teo.
+
 end
 
 function afterZoneIn(player)
