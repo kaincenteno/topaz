@@ -8,11 +8,13 @@ tpz = tpz or {}
 tpz.events = tpz.events or {}
 tpz.events.loginCampaign = tpz.events.loginCampaign or {}
 
+-- Change vars below to modify settings for current login campaign
 loginCampaignYear = 2019
 loginCampaignMonth = 11
 loginCampaignDay = 2
 loginCampaignDuration = 28 -- Duration is set in Earth days
 
+-- Checks if a Login Campaign is active.
 tpz.events.loginCampaign.isCampaignActive = function()
     if ENABLE_LOGIN_CAMPAIGN == 1 then
         local currentLocalTime = os.time(os.date('*t'))
@@ -86,7 +88,8 @@ end
 package.loaded["scripts/globals/events/login_campaign_data"] = nil
 require("scripts/globals/events/login_campaign_data")
 
---
+-- Beginning of CS with Greeter Moogle.
+-- First list showing prices.
 tpz.events.loginCampaign.onTrigger = function(player)
     local loginPoints = player:getCurrency("login_points")
     local cYear = loginCampaignYear
@@ -94,14 +97,14 @@ tpz.events.loginCampaign.onTrigger = function(player)
     local cDate = bit.bor(cYear, bit.lshift(loginCampaignMonth, 28))
     local currentLoginCampaign = tpz.events.loginCampaign.prizes[cYear][cMonth]
 
-    local price1 = currentLoginCampaign[1]["price"]
-    local price2 = bit.lshift(currentLoginCampaign[5]["price"], 16)
-    local price3 = currentLoginCampaign[9]["price"]
-    local price4 = bit.lshift(currentLoginCampaign[13]["price"], 16)
-    local price5 = currentLoginCampaign[17]["price"]
-    local price6 = bit.lshift(currentLoginCampaign[21]["price"], 16)
-    local price7 = currentLoginCampaign[25]["price"]
-    local price8 = bit.lshift(currentLoginCampaign[29]["price"], 16)
+    local price1 = currentLoginCampaign[1]["price"] or 0
+    local price2 = bit.lshift(currentLoginCampaign[5]["price"], 16) or 0
+    local price3 = currentLoginCampaign[9]["price"] or 0
+    local price4 = bit.lshift(currentLoginCampaign[13]["price"], 16) or 0
+    local price5 = currentLoginCampaign[17]["price"] or 0
+    local price6 = bit.lshift(currentLoginCampaign[21]["price"], 16) or 0
+    local price7 = currentLoginCampaign[25]["price"] or 0
+    local price8 = bit.lshift(currentLoginCampaign[29]["price"], 16) or 0
 
     local priceBit1 = bit.bor(price1, price2) -- set of 2 16bits
     local priceBit2 = bit.bor(price3, price4)
@@ -111,6 +114,8 @@ tpz.events.loginCampaign.onTrigger = function(player)
     player:startEvent(528, cDate, loginPoints, priceBit1, priceBit2, priceBit3, priceBit4)
 end
 
+-- Shows list of items depending on option selected.
+-- It also is in charge of purchasing selected item.
 tpz.events.loginCampaign.onEventUpdate = function(player, csid, option)
     local showItems = bit.band(option, 31) -- first 32 bits are for showing correct item list
     local itemSelected = bit.band(bit.rshift(option, 5), 31)

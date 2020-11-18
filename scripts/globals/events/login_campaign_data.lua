@@ -1,6 +1,7 @@
 -- This file is called by login_campaign.lua and require()'s no file, it should not be require()'d by any
 -- other lua scripts, which should instead require() login_campaign.lua directly.
 
+-- items table can only hold up to 20 items per option.
 tpz.events.loginCampaign.prizes =
 {
     [2019] =
