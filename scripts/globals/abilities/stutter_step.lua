@@ -48,6 +48,7 @@ function onUseAbility(player, target, ability, action)
                     target:addStatusEffect(tpz.effect.WEAKENED_DAZE_3, 1, 0, duration+30)
                     daze = 3
                     effect = 3
+                    player:delStatusEffectSilent(tpz.effect.PRESTO)
                 else
                     target:addStatusEffect(tpz.effect.WEAKENED_DAZE_2, 1, 0, duration+30)
                     daze = 2
@@ -61,6 +62,7 @@ function onUseAbility(player, target, ability, action)
                     target:addStatusEffect(tpz.effect.WEAKENED_DAZE_4, 1, 0, duration+30)
                     daze = 3
                     effect = 4
+                    player:delStatusEffectSilent(tpz.effect.PRESTO)
                 else
                     target:addStatusEffect(tpz.effect.WEAKENED_DAZE_3, 1, 0, duration+30)
                     daze = 2
@@ -74,6 +76,7 @@ function onUseAbility(player, target, ability, action)
                     target:addStatusEffect(tpz.effect.WEAKENED_DAZE_5, 1, 0, duration+30)
                     daze = 3
                     effect = 5
+                    player:delStatusEffectSilent(tpz.effect.PRESTO)
                 else
                     target:addStatusEffect(tpz.effect.WEAKENED_DAZE_4, 1, 0, duration+30)
                     daze = 2
@@ -85,6 +88,7 @@ function onUseAbility(player, target, ability, action)
                 target:delStatusEffectSilent(tpz.effect.WEAKENED_DAZE_4)
                 if (player:hasStatusEffect(tpz.effect.PRESTO)) then
                     daze = 3
+                    player:delStatusEffectSilent(tpz.effect.PRESTO)
                 else
                     daze = 2
                 end
@@ -103,6 +107,7 @@ function onUseAbility(player, target, ability, action)
                     target:addStatusEffect(tpz.effect.WEAKENED_DAZE_2, 1, 0, 60)
                     daze = 3
                     effect = 2
+                    player:delStatusEffectSilent(tpz.effect.PRESTO)
                 else
                     target:addStatusEffect(tpz.effect.WEAKENED_DAZE_1, 1, 0, 60)
                     daze = 2
