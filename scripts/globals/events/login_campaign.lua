@@ -9,7 +9,7 @@ tpz.events = tpz.events or {}
 tpz.events.loginCampaign = tpz.events.loginCampaign or {}
 
 -- Change vars below to modify settings for current login campaign
-loginCampaignYear = 2019
+loginCampaignYear = 2020
 loginCampaignMonth = 11
 loginCampaignDay = 2
 loginCampaignDuration = 28 -- Duration is set in Earth days
@@ -89,29 +89,48 @@ package.loaded["scripts/globals/events/login_campaign_data"] = nil
 require("scripts/globals/events/login_campaign_data")
 
 -- Beginning of CS with Greeter Moogle.
--- First list showing prices.
+-- Handles showing the correct list of prices and hiding the options that are not available
 tpz.events.loginCampaign.onTrigger = function(player)
     local loginPoints = player:getCurrency("login_points")
     local cYear = loginCampaignYear
     local cMonth = loginCampaignMonth
     local cDate = bit.bor(cYear, bit.lshift(loginCampaignMonth, 28))
     local currentLoginCampaign = tpz.events.loginCampaign.prizes[cYear][cMonth]
+    local price = {}
+    local priceShift = {}
+    local hideOptions = 0
 
-    local price1 = currentLoginCampaign[1]["price"] or 0
-    local price2 = bit.lshift(currentLoginCampaign[5]["price"], 16) or 0
-    local price3 = currentLoginCampaign[9]["price"] or 0
-    local price4 = bit.lshift(currentLoginCampaign[13]["price"], 16) or 0
-    local price5 = currentLoginCampaign[17]["price"] or 0
-    local price6 = bit.lshift(currentLoginCampaign[21]["price"], 16) or 0
-    local price7 = currentLoginCampaign[25]["price"] or 0
-    local price8 = bit.lshift(currentLoginCampaign[29]["price"], 16) or 0
+    -- Makes a table of prices
+    for k, v in pairs(currentLoginCampaign) do
+        price[k] = currentLoginCampaign[k]["price"]
+        print(price[k])
+    end
 
-    local priceBit1 = bit.bor(price1, price2) -- set of 2 16bits
-    local priceBit2 = bit.bor(price3, price4)
-    local priceBit3 = bit.bor(price5, price6)
-    local priceBit4 = bit.bor(price7, price8)
+    -- Bit shifts values of prices (Defaults to 0 if price not in table)
+    priceShift[1] = price[1] or 0
+    priceShift[2] = bit.lshift(price[5] or 0, 16)
+    priceShift[3] = price[9] or 0
+    priceShift[4] = bit.lshift(price[13] or 0, 16)
+    priceShift[5] = price[17] or 0
+    priceShift[6] = bit.lshift(price[21] or 0, 16)
+    priceShift[7] = price[25] or 0
+    priceShift[8] = bit.lshift(price[29] or 0, 16)
 
-    player:startEvent(528, cDate, loginPoints, priceBit1, priceBit2, priceBit3, priceBit4)
+    -- Combines two 16bit values to a single 32bit that will be passed as a CS param
+    local priceBit1 = bit.bor(priceShift[1], priceShift[2])
+    local priceBit2 = bit.bor(priceShift[3], priceShift[4])
+    local priceBit3 = bit.bor(priceShift[5], priceShift[6])
+    local priceBit4 = bit.bor(priceShift[7], priceShift[8])
+
+    -- Turning on bits in hideOptions will make choices disappear
+    for i=1, #priceShift do
+        if priceShift[i] == 0 then
+            hideOptions = bit.bor(hideOptions, bit.lshift(1, i - 1))
+        end
+    end
+
+    -- Eight param is not used
+    player:startEvent(528, cDate, loginPoints, priceBit1, priceBit2, priceBit3, priceBit4, hideOptions)
 end
 
 -- Shows list of items depending on option selected.
@@ -123,6 +142,7 @@ tpz.events.loginCampaign.onEventUpdate = function(player, csid, option)
     local cYear = loginCampaignYear
     local cMonth = loginCampaignMonth
     local currentLoginCampaign = tpz.events.loginCampaign.prizes[cYear][cMonth]
+    local loginPoints = player:getCurrency("login_points")
 
     if
         showItems == 1 or
@@ -165,7 +185,6 @@ tpz.events.loginCampaign.onEventUpdate = function(player, csid, option)
         showItems == 30
     then
         local price = currentLoginCampaign[showItems - 1]["price"]
-        local loginPoints = player:getCurrency(login_points)
         local totalItemsMask = (2 ^ 20 - 1) - (2 ^ #currentLoginCampaign[showItems - 1]["items"] - 1)  -- Uses 20 bits and sets to 1 for items not used.
         local items = {}
 
@@ -186,8 +205,17 @@ tpz.events.loginCampaign.onEventUpdate = function(player, csid, option)
         )
 
     else
+        print(loginPoints)
+
         if npcUtil.giveItem(player, { {currentLoginCampaign[showItems - 2]["items"][itemSelected + 1], itemQuantity} }) then
             player:delCurrency("login_points", currentLoginCampaign[showItems - 2]["price"] * itemQuantity)
+            player:updateEvent(
+                currentLoginCampaign[showItems - 2]["items"][itemSelected + 1],
+                player:getCurrency("login_points"),  -- Login Points after purchase
+                0, -- Unknown (most likely totalItemMask)
+                currentLoginCampaign[showItems - 2]["price"],
+                loginPoints -- Login points before purchase
+            )
         end
     end
 end
