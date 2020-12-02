@@ -7,11 +7,9 @@ function item_utils.skillBookCheck(target, skillID)
     local skill = skillID
     local mainCap = target:getMaxSkillLevel(target:getMainLvl(), target:getMainJob(), skill) or 0
     local subCap = target:getMaxSkillLevel(target:getSubLvl(), target:getSubJob(), skill) or 0
-    local skillLevel = target:getCharSkillLevel(skill)/10
     local mainDif = (mainCap*10)/10 - (target:getCharSkillLevel(skill)*10)/100
     local subDif = (mainCap*10)/10 - (target:getCharSkillLevel(skill)*10)/100
     local noSkill = 0
-    local canUse = 0
 
     if mainCap == 0 then
         noSkill = noSkill +1
@@ -44,6 +42,10 @@ function item_utils.skillBookUse(target, skillID)
     local randomCap = 1
     local skillGain = 0
 
+    if dif <= 0 then
+        return
+    end
+
     if dif > 100 then
         randomCap = 5
     elseif dif < 100 and dif >= 50 then
@@ -52,15 +54,9 @@ function item_utils.skillBookUse(target, skillID)
         randomCap = 3
     elseif dif < 20 and dif >= 10 then
         randomCap = 2
-    elseif dif < 10 then
-        randomCap = 1
     end
 
     skillGain = math.random(1, randomCap)
-
-    if dif <= 0 then
-        return
-    end
 
     target:messageBasic(38, skill, skillGain)
     
