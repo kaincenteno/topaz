@@ -1,0 +1,19 @@
+-----------------------------------------
+-- ID: 6147
+-- Item: Mikhe's Memo
+-- A memo scrawled by Mikhe Aryohcha that matter-of-factly states, 
+-- "Just throw your fist at your opponent and it'll all work out."
+-- Adventurers say that their hand-to-hand skill increases after reading this note. 
+-----------------------------------------
+require("scripts/globals/item_utils")
+require("scripts/globals/status")
+require("scripts/globals/msg")
+-----------------------------------------
+
+function onItemCheck(target)
+    return item_utils.skillBookCheck(target, tpz.skill.HAND_TO_HAND)
+end
+
+function onItemUse(target)
+    item_utils.skillBookUse(target, tpz.skill.HAND_TO_HAND)
+end
