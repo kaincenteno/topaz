@@ -14,21 +14,5 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-    target:addStatusEffect(tpz.effect.PRESTO, 19, 1, 30)
-
-    if player:addStatusEffect(tpz.effect.FINISHING_MOVE_1) then
-        player:addStatusEffect(tpz.effect.FINISHING_MOVE_1)
-    elseif player:hasStatusEffect(tpz.effect.FINISHING_MOVE_1) then
-        player:delStatusEffect(tpz.effect.FINISHING_MOVE_1)
-        player:addStatusEffect(tpz.effect.FINISHING_MOVE_3)
-    elseif player:hasStatusEffect(tpz.effect.FINISHING_MOVE_2) then
-        player:delStatusEffect(tpz.effect.FINISHING_MOVE_2)
-        player:addStatusEffect(tpz.effect.FINISHING_MOVE_3)
-    elseif player:hasStatusEffect(tpz.effect.FINISHING_MOVE_3) then
-        player:delStatusEffect(tpz.effect.FINISHING_MOVE_3)
-        player:addStatusEffect(tpz.effect.FINISHING_MOVE_4)
-    elseif player:hasStatusEffect(tpz.effect.FINISHING_MOVE_4) then
-        player:delStatusEffect(tpz.effect.FINISHING_MOVE_4)
-        player:addStatusEffect(tpz.effect.FINISHING_MOVE_5)
-    end
+    target:addStatusEffect(tpz.effect.PRESTO, 0, 0, 30)
 end
