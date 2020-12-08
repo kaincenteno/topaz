@@ -194,10 +194,6 @@ function onGameIn(player, firstLogin, zoning)
 
 end
 
-function afterZoneIn(player)
-    print("tell me what u want what u really really want")
-end
-
 function onPlayerLevelUp(player)
 end
 

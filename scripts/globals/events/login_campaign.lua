@@ -10,9 +10,9 @@ tpz.events.loginCampaign = tpz.events.loginCampaign or {}
 
 -- Change vars below to modify settings for current login campaign
 loginCampaignYear = 2020
-loginCampaignMonth = 11
-loginCampaignDay = 2
-loginCampaignDuration = 28 -- Duration is set in Earth days
+loginCampaignMonth = 12
+loginCampaignDay = 10
+loginCampaignDuration = 23 -- Duration is set in Earth days
 
 -- Checks if a Login Campaign is active.
 tpz.events.loginCampaign.isCampaignActive = function()
@@ -30,7 +30,7 @@ tpz.events.loginCampaign.isCampaignActive = function()
         }) + jstOffset  -- JST time
         local campaignEndDate = campaignStartDate + loginCampaignDuration * 24 * 60 * 60
 
-        if os.time() < campaignEndDate then
+        if os.time() < campaignEndDate and os.time() > campaignStartDate then
             return true
         end
     end
@@ -38,6 +38,10 @@ end
 
 -- Gives Login Points once a day.
 tpz.events.loginCampaign.onGameIn = function(player)
+    if not tpz.events.loginCampaign.isCampaignActive()  then
+        return
+    end
+
     local zoneId      = player:getZoneID()
     local ID          = zones[zoneId]
     local loginPoints = player:getCurrency("login_points")
@@ -47,7 +51,7 @@ tpz.events.loginCampaign.onGameIn = function(player)
     local loginCount = player:getCharVar("LoginCampaignLoginNumber")
 
     -- Carry last months points if there's any
-    if playercMonth ~= loginCampaignMonth and playercYear ~= loginCampaignYear then
+    if playercMonth ~= loginCampaignMonth or playercYear ~= loginCampaignYear then
         if loginPoints > 1500 then
             player:setCurrency("login_points", 1500)
             player:messageSpecial(ID.text.CARRIED_OVER_POINTS, 0, 1500)
@@ -56,6 +60,7 @@ tpz.events.loginCampaign.onGameIn = function(player)
         end
         player:setCharVar("LoginCampaignMonth", loginCampaignMonth)
         player:setCharVar("LoginCampaignYear", loginCampaignYear)
+        player:setCharVar("LoginCampaignLoginNumber", 0)
     end
 
     -- Show Info about campaign (month, year, login time) and add points
@@ -78,7 +83,6 @@ tpz.events.loginCampaign.onGameIn = function(player)
             player:addCurrency("login_points", 100)
             player:messageSpecial(ID.text.LOGIN_NUMBER, 0, loginCount, 100, player:getCurrency("login_points"))
         end
-        player:PrintToPlayer("next midnight is"..getMidnight())
         player:setCharVar("LoginCampaignLoginNumber", loginCount)
     end
 
@@ -90,7 +94,11 @@ require("scripts/globals/events/login_campaign_data")
 
 -- Beginning of CS with Greeter Moogle.
 -- Handles showing the correct list of prices and hiding the options that are not available
-tpz.events.loginCampaign.onTrigger = function(player)
+tpz.events.loginCampaign.onTrigger = function(player, csid)
+    if not tpz.events.loginCampaign.isCampaignActive()  then
+        return
+    end
+
     local loginPoints = player:getCurrency("login_points")
     local cYear = loginCampaignYear
     local cMonth = loginCampaignMonth
@@ -103,7 +111,6 @@ tpz.events.loginCampaign.onTrigger = function(player)
     -- Makes a table of prices
     for k, v in pairs(currentLoginCampaign) do
         price[k] = currentLoginCampaign[k]["price"]
-        print(price[k])
     end
 
     -- Bit shifts values of prices (Defaults to 0 if price not in table)
@@ -130,12 +137,16 @@ tpz.events.loginCampaign.onTrigger = function(player)
     end
 
     -- Eight param is not used
-    player:startEvent(528, cDate, loginPoints, priceBit1, priceBit2, priceBit3, priceBit4, hideOptions)
+    player:startEvent(csid, cDate, loginPoints, priceBit1, priceBit2, priceBit3, priceBit4, hideOptions)
 end
 
 -- Shows list of items depending on option selected.
 -- It also is in charge of purchasing selected item.
 tpz.events.loginCampaign.onEventUpdate = function(player, csid, option)
+    if not tpz.events.loginCampaign.isCampaignActive() then
+        return
+    end
+
     local showItems = bit.band(option, 31) -- first 32 bits are for showing correct item list
     local itemSelected = bit.band(bit.rshift(option, 5), 31)
     local itemQuantity = bit.band(bit.rshift(option, 11), 511)
@@ -205,7 +216,6 @@ tpz.events.loginCampaign.onEventUpdate = function(player, csid, option)
         )
 
     else
-        print(loginPoints)
 
         if npcUtil.giveItem(player, { {currentLoginCampaign[showItems - 2]["items"][itemSelected + 1], itemQuantity} }) then
             player:delCurrency("login_points", currentLoginCampaign[showItems - 2]["price"] * itemQuantity)

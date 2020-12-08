@@ -1,5 +1,5 @@
 -----------------------------------
--- Area: Windurst Walls (239)
+-- Area: Port Bastok (236)
 --  NPC: Greeter Moogle
 -- !pos NEED POS
 -----------------------------------
@@ -10,7 +10,7 @@ function onTrade(player, npc, trade)
 end
 
 function onTrigger(player, npc)
-    local csid = 528
+    local csid = 425
     tpz.events.loginCampaign.onTrigger(player, csid)
 end
 
