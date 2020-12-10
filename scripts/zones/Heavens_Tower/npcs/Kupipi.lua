@@ -91,7 +91,7 @@ function onTrigger(player, npc)
             player:startEvent(251)
         end
     elseif pNation == tpz.nation.WINDURST then
-        if currentMission == tpz.mission.id.windurst.THE_THREE_KINGDOMS and missionStatus == 1 then -- Fixed initial Windurst CS for mission
+        if currentMission == tpz.mission.id.windurst.THE_THREE_KINGDOMS and missionStatus == 0 then
             player:startEvent(95, 0, 0, 0, tpz.ki.LETTER_TO_THE_CONSULS_WINDURST)
         elseif currentMission == tpz.mission.id.windurst.THE_THREE_KINGDOMS and missionStatus == 11 then
             player:startEvent(101, 0, 0, tpz.ki.ADVENTURERS_CERTIFICATE)
